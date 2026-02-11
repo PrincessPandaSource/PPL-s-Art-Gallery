@@ -1,0 +1,5 @@
+{
+    "tags": "artGallery",
+    "layout": "layouts/art-page.html",
+    "permalink": "/art/{{ title | slugify }}.html"
+}

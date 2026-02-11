@@ -1,0 +1,13 @@
+---
+layout: layouts/main.html
+---
+<h2>{{ title }}</h2>
+<img src="/img/art/{{ fileName }}" width="300"/>
+
+<p>{{ date | artDate }}</p>
+
+<p>Categories: {{ categories | listTags | safe }}</p>
+
+<p>Tags: {{ artTags | listTags | safe }}</p>
+
+{{ content | safe }}
