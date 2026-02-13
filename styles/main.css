@@ -42,3 +42,20 @@ b {
 .art-tag:not(:last-child) {
     margin-right: 3px;
 }
+
+.art-page-img-div {
+    height: 450px;
+    width: 100%;
+}
+
+.art-page-img-div img {
+    object-fit: scale-down;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+
+hr.hr-line {
+    border: none;
+    border-top: 1px solid #000;
+}

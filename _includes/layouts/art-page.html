@@ -1,13 +1,17 @@
 ---
 layout: layouts/main.html
 ---
-<h2>{{ title }}</h2>
-<img src="/img/art/{{ fileName }}" width="300"/>
+<div class="art-page-img-div">
+    <img src="/img/art/{{ fileName }}"/>
+</div>
 
+<h2>{{ title }}</h2>
 <p>{{ date | artDate }}</p>
 
 <p>Categories: {{ categories | listTags | safe }}</p>
 
 <p>Tags: {{ artTags | listTags | safe }}</p>
+
+<hr class="hr-line">
 
 {{ content | safe }}
