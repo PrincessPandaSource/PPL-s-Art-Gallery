@@ -1,0 +1,9 @@
+{% macro galleryItem(fileName, title, date) %}
+<a class="gallery-link" href="/art/{{ title | slugify }}">
+    <div class="gallery-item">
+    <img class="gallery-item-art" src="/img/art/{{ fileName }}"/>
+    <p><b>{{ title }}</b></p>
+    <p>{{ date | artDate }}</p>
+    </div>
+</a>
+{% endmacro %}

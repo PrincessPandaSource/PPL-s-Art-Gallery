@@ -6,15 +6,11 @@ pagination:
   reverse: true
 permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}
 ---
+{% import "components/gallery.njk" as c %}
+
 <div class="gallery-grid">
   {%- for artwork in pagination.items %}
-    <a class="gallery-link" href="/art/{{ artwork.data.title | slugify }}">
-      <div class="gallery-item">
-        <img class="gallery-item-art" src="/img/art/{{ artwork.data.fileName }}" width="300"/>
-        <p><b>{{ artwork.data.title }}</b></p>
-        <p>{{ artwork.date | artDate }}</p>
-      </div>
-    </a>
+    {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date) }}
   {% endfor -%}
 </div>
 

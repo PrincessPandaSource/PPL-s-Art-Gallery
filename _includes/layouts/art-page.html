@@ -8,7 +8,7 @@ layout: layouts/main.html
 <h2>{{ title }}</h2>
 <p>{{ date | artDate }}</p>
 
-<p>Categories: {{ categories | listTags | safe }}</p>
+<p>Categories: {% for category in categories %}<a class="art-tag" href="/category/{{ category | slugify }}">{{ category }}</a>{% endfor %}</p>
 
 <p>Tags: {{ artTags | listTags | safe }}</p>
 

@@ -24,6 +24,42 @@ export default function(eleventyConfig) {
 
         return html;
     });
+
+    eleventyConfig.addCollection("artCategories", function(collectionApi) {
+        let artCategories = new Array();
+        const artworks = collectionApi.getFilteredByTag("artGallery");
+
+        artworks.forEach(artwork => {
+            const artsCate = artwork.data.categories;
+            artsCate.forEach(category => {
+                if (!(artCategories.includes(category))) artCategories.push(category);
+            });
+        });
+
+        return artCategories;
+    })
+
+    eleventyConfig.addFilter("filterByArtTag", function(artworks, type, tag) {
+        // Lowercase is used for consistency
+        tag = tag.toLowerCase();
+
+        const filteredArts = artworks.filter(artwork => {
+            let array;
+
+            switch (type) {
+                case "category":
+                    array = artwork.data.categories.map(c => c.toLowerCase());
+                    break;
+                case "tag":
+                    array = artwork.data.artTags.map(t => t.toLowerCase());
+                    break;
+            }
+
+            return array.includes(tag);
+        })
+
+        return filteredArts;
+    })
 }
 
 // Set all HTML files to use Nunjunks
