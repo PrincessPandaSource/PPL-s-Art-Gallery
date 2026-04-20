@@ -1,0 +1,20 @@
+---
+pagination:
+    data: collections.artTags
+    size: 1
+    alias: artTag
+permalink: "/tag/{{ artTag | slugify }}.html"
+eleventyComputed:
+    layout: layouts/main.html
+    title: "Tag: {{ artTag }}"
+---
+{% import "components/gallery.njk" as c %}
+
+<h2>Tag: {{ artTag }}</h2>
+
+{%- set artworks = collections.artGallery | filterByArtTag("tag", artTag) | reverse -%}
+<div class="gallery-grid">
+  {%- for artwork in artworks %}
+    {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date) }}
+  {% endfor -%}
+</div>

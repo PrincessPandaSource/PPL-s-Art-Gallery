@@ -15,16 +15,6 @@ export default function(eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
 
-    eleventyConfig.addFilter("listTags", (array) => {
-        let html = ``;
-
-        array.forEach((tag) => {
-            html += (`<span class="art-tag">${tag}</span>`);
-        })
-
-        return html;
-    });
-
     eleventyConfig.addCollection("artCategories", function(collectionApi) {
         let artCategories = new Array();
         const artworks = collectionApi.getFilteredByTag("artGallery");
@@ -37,6 +27,20 @@ export default function(eleventyConfig) {
         });
 
         return artCategories;
+    })
+
+    eleventyConfig.addCollection("artTags", function(collectionApi) {
+        let artTags = new Array();
+        const artworks = collectionApi.getFilteredByTag("artGallery");
+
+        artworks.forEach(artwork => {
+            const artsTags = artwork.data.artTags;
+            artsTags.forEach(tag => {
+                if (!(artTags.includes(tag))) artTags.push(tag);
+            });
+        });
+
+        return artTags;
     })
 
     eleventyConfig.addFilter("filterByArtTag", function(artworks, type, tag) {

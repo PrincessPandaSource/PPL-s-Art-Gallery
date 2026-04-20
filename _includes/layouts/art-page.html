@@ -10,7 +10,7 @@ layout: layouts/main.html
 
 <p>Categories: {% for category in categories %}<a class="art-tag" href="/category/{{ category | slugify }}">{{ category }}</a>{% endfor %}</p>
 
-<p>Tags: {{ artTags | listTags | safe }}</p>
+<p>Tags: {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}">{{ artTag }}</a>{% endfor %}</p>
 
 <hr class="hr-line">
 
