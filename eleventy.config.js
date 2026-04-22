@@ -3,6 +3,7 @@ import { DateTime } from "luxon";
 export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("img");
+    eleventyConfig.addPassthroughCopy("scripts");
 
     // Remove trailing slashes from dead-end pages
 	/*eleventyConfig.addGlobalData("permalink", () => {
