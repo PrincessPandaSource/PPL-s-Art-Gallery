@@ -14,6 +14,9 @@ permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{%
   {% endfor -%}
 </div>
 
+{%- if pagination.href.previous or pagination.href.next %}
+<nav class="gallery-nav">
+{% endif -%}
 {%- if pagination.href.previous %}
 <a href="{{ pagination.href.previous }}">Previous</a>
 {% endif -%}
@@ -22,4 +25,7 @@ permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{%
 {% endif -%} 
 {%- if pagination.href.next %}
   <a href="{{ pagination.href.next }}">Next</a>
+{% endif -%}
+{%- if pagination.href.previous or pagination.href.next %}
+</nav>
 {% endif -%}
