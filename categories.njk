@@ -1,20 +1,39 @@
 ---
 pagination:
-    data: collections.artCategories
+    data: collections.artByCategories
     size: 1
     alias: artCategory
-permalink: "/category/{{ artCategory | slugify }}.html"
+permalink: "/category/{{ artCategory.category | slugify }}/{%- if artCategory.pageNumber > 1 %}{{ artCategory.pageNumber }}.html{%- endif %}"
 eleventyComputed:
     layout: layouts/main.html
     title: "Category: {{ artCategory }}"
 ---
 {% import "components/gallery.njk" as c %}
 
-<h2>Category: {{ artCategory }}</h2>
+<h2>Category: {{ artCategory.category }}</h2>
 
-{%- set artworks = collections.artGallery | filterByArtTag("category", artCategory) | reverse -%}
 <div class="gallery-grid">
-  {%- for artwork in artworks %}
+  {%- for artwork in artCategory.artworks %}
     {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date) }}
   {% endfor -%}
 </div>
+
+{%- if artCategory.totalPages > 1 %}
+<nav class="gallery-nav">
+{% endif -%}
+{%- if artCategory.pageNumber > 1 %}
+{%- if artCategory.pageNumber - 1 == 1 %}
+<a href="/category/{{ artCategory.category | slugify }}/">Previous</a>
+{%- else %}
+<a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber - 1 }}">Previous</a>
+{% endif -%}
+{% endif -%}
+{%- if artCategory.pageNumber > 1 and artCategory.pageNumber < artCategory.totalPages %}
+ | 
+{% endif -%} 
+{%- if artCategory.pageNumber < artCategory.totalPages %}
+  <a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber + 1 }}">Next</a>
+{% endif -%}
+{%- if artCategory.totalPages > 1 %}
+</nav>
+{% endif -%}
