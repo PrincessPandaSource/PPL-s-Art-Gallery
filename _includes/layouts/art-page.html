@@ -8,7 +8,17 @@ layout: layouts/main.html
 <h2>{{ title }}</h2>
 <p>{{ date | artDate }}</p>
 
-<p class="p-categories"><span>Categories:</span> {% for category in categories %}<a class="art-tag" href="/category/{{ category | slugify }}/">{{ category }}</a>{% endfor %}</p>
+<p class="p-categories"><span>Categories:</span>
+{%- for cateId in categories %}
+    {%- set category = "test" %}
+    {%- for object in artCategories %}
+        {%- if object.id == cateId %}
+            {%- set category = object.name %}
+        {%- endif %}
+    {%- endfor %}
+    <a class="art-tag" href="/category/{{ category | slugify }}/">{{ category }}</a>
+{%- endfor %}
+</p>
 
 <p class="p-tags"><span>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a>{% endfor %}</p>
 

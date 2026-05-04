@@ -14,8 +14,8 @@ eleventyComputed:
 <div>
   <b>View by category:</b>
   <ul id="category-list">
-  {% for category in collections.artByCategories %}
-    <li><a href="/category/{{ category.category | slugify }}/">{{ category.category }}</a></li>
+  {% for category in artCategories %}
+    <li><a href="/category/{{ category.name | slugify }}/">{{ category.name }}</a></li>
   {% endfor %}
   </ul>
 

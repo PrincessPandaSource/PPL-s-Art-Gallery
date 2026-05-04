@@ -2,7 +2,7 @@
 title: "My style of comic coloring"
 date: 2022-08-22
 fileName: "my style of comic coloring.png"
-categories: ["Original art"]
+categories: [0]
 artTags: ["digital", "gimp", "full color", "still life"]
 ---
 A **still life** (pl.: **still lifes**) is a work of art depicting mostly inanimate subject matter, typically commonplace objects which are either natural (food, flowers, dead animals, plants, rocks, shells, etc.) or human-made (drinking glasses, books, vases, jewelry, coins, pipes, etc.).

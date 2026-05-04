@@ -2,6 +2,8 @@ import { DateTime } from "luxon";
 import lodash from "lodash";
 
 export default function(eleventyConfig) {
+    // Copies the following to the build, for that they are
+    // not transferred by default
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("img");
     eleventyConfig.addPassthroughCopy("scripts");
@@ -12,27 +14,63 @@ export default function(eleventyConfig) {
 			`${data.page.filePathStem}.${data.page.outputFileExtension}`;
 	});*/
 
+    // Filter for processing date into full format with full month name
+    // and all
     eleventyConfig.addFilter("artDate", (dateString) => {
         const dateObj = new Date(dateString);
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
     });
 
+    // SET ART CATEGORIES HERE
+    const artCategories = [
+        {
+            name: "Original art",
+            id: 0
+        },
+        {
+            name: "Sonic the Hedgehog fan art",
+            id: 1
+        },
+        {
+            name: "Other fan art",
+            id: 2
+        },
+        {
+            name: "Inktober 2019",
+            id: 3
+        }
+    ]
+    // You can reorder the categories by reordering their entries in the array
+
+    // Allows other files to access the artCategories array
+    eleventyConfig.addGlobalData("artCategories", artCategories);
+
+    // Creates double pagination for art categories
     // Code source: https://www.codeflood.net/blog/2024/04/17/11ty-nested-pagination/
     eleventyConfig.addCollection("artByCategories", function(collectionApi) {
         const artworks = collectionApi.getFilteredByTag("artGallery");
 
-        // Get categories
+        // Get art by categories
         let artByCategories = new Array();
 
         artworks.forEach(artwork => {
             const artsCate = artwork.data.categories;
-            artsCate.forEach(category => {
+            artsCate.forEach(cateId => {
+                let category = "test";
+
+                for (const i in artCategories) {
+                    if (artCategories[i].id == cateId) {
+                        category = artCategories[i].name;
+                        break;
+                    }
+                }
+
                 if (!artByCategories[category]) artByCategories[category] = [];
                 artByCategories[category].push(artwork);
             });
         });
 
-        // Page categories
+        // Categories pagination
         let artByCategoriesPaged = [];
         const pageSize = 20;
         for (const category in artByCategories) {
@@ -54,6 +92,7 @@ export default function(eleventyConfig) {
         return artByCategoriesPaged;
     })
 
+    // Obtains and creates double pagination for art tags
     eleventyConfig.addCollection("artByTags", function(collectionApi) {
         const artworks = collectionApi.getFilteredByTag("artGallery");
 
@@ -68,7 +107,7 @@ export default function(eleventyConfig) {
             });
         });
 
-        // Page art tags
+        // Art tags pagination
         let artByTagsPaged = [];
         const pageSize = 20;
         for (const tag in artByTags) {

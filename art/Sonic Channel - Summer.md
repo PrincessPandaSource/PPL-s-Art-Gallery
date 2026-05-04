@@ -2,7 +2,7 @@
 title: "Sonic Channel August 2020 - Summer (unfinished)"
 date: 2020-07-18
 fileName: "Sonic Channel August 2020 - Summer.png"
-categories: ["Sonic the Hedgehog fan art"]
+categories: [1]
 artTags: ["digital", "gimp", "full color", "sonic the hedgehog", "miles tails prower", "amy rose", "knuckles the echidna", "shadow the hedgehog", "espio the chameleon", "blaze the cat", "silver the hedgehog", "chao"]
 ---
 **["Summer"](https://en.wikipedia.org/wiki/Summer_(Calvin_Harris_song))** is a song by Scottish DJ Calvin Harris, released on 14 March 2014 as the second single from his fourth studio album, *Motion* (2014). Like his earlier single "Feel So Close" and his later single "My Way", Harris returns as a vocalist on "Summer". The accompanying music video was directed by Emil Nava and premiered on 6 April 2014.
