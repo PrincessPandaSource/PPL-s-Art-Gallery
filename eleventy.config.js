@@ -68,7 +68,7 @@ export default function(eleventyConfig) {
             });
         });
 
-        // Page categories
+        // Page art tags
         let artByTagsPaged = [];
         const pageSize = 20;
         for (const tag in artByTags) {

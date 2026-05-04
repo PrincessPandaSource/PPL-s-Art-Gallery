@@ -5,21 +5,23 @@ pagination:
   size: 20
   reverse: true
 permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}
+eleventyComputed:
+  title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }}{% endif %}"
 ---
 {%- import "components/gallery.njk" as c %}
 
-{%- if pagination.pageNumber == 0 %}
+{% if pagination.pageNumber == 0 %}
 <div>
   <b>View by category:</b>
   <ul id="category-list">
-  {%- for category in collections.artByCategories %}
+  {% for category in collections.artByCategories %}
     <li><a href="/category/{{ category.category | slugify }}/">{{ category.category }}</a></li>
-  {%- endfor %}
+  {% endfor %}
   </ul>
 
   <hr class="hr-line">
 </div>
-{%- endif %}
+{% endif %}
 
 <div class="gallery-grid">
   {%- for artwork in pagination.items %}

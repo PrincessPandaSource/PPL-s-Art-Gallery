@@ -6,7 +6,7 @@ pagination:
 permalink: "/tag/{{ artTag.tag | slugify }}/{%- if artTag.pageNumber > 1 %}{{ artTag.pageNumber }}.html{%- endif %}"
 eleventyComputed:
     layout: layouts/main.html
-    title: "Tagged: {{ artTag }}"
+    title: "{% if artTag.pageNumber > 1 %}Page {{artTag.pageNumber}} - {% endif %}Tagged: {{ artTag.tag }}"
 ---
 {% import "components/gallery.njk" as c %}
 
