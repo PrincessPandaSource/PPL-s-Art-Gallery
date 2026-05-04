@@ -78,6 +78,27 @@ header {
     text-align: center;
 }
 
+#category-list {
+    padding: 0 0 0.5em 0;
+    list-style-type: none;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#category-list li {
+    display: inline;
+    padding: 0 0.5em;
+}
+
+#category-list li:first-child {
+    padding-left: 0;
+    padding-right: 0.5em;
+}
+
+#category-list li:not(:first-child) {
+    border-left: 1px solid #000;
+}
+
 .p-categories, .p-tags {
     display: flex;
     flex-wrap: wrap;
