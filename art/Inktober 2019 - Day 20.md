@@ -4,6 +4,7 @@ date: 2019-10-04
 fileName: "Day 20 - Tread.jpg"
 categories: [3, 0]
 artTags: ["traditional", "ink", "black and white", "non-anthro animal", "snake", "fox"]
+altText: "Curled-up rattlesnake exclaiming to the fox, 'Don't tread on me'. Large text reads 'Day 20: TREAD'."
 ---
 The **![Gadsden flag](https://en.wikipedia.org/wiki/Gadsden_flag)** is a historical American flag with a yellow field depicting a timber rattlesnake coiled and ready to strike. Beneath the rattlesnake are the words "Dont Tread on Me" [sic]. Some modern versions of the flag include an apostrophe in the word "don't". Originating in the American Revolution, the flag has in modern days become a symbol of American right-libertarianism, and later the Tea Party movement.
 

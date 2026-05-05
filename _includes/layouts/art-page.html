@@ -2,7 +2,7 @@
 layout: layouts/main.html
 ---
 <div class="art-page-img-div">
-    <img src="/img/art/{{ fileName }}" onclick="openImgModal()"/>
+    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
 </div>
 
 <h2>{{ title }}</h2>
@@ -28,7 +28,7 @@ layout: layouts/main.html
 
 <div id="img-modal" class="modal">
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
-    <img src="/img/art/{{ fileName }}" class="modal-img"/>
+    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img"/>
 </div>
 
 <script src="/scripts/imgModal.js" defer></script>

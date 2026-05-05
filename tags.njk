@@ -14,7 +14,7 @@ eleventyComputed:
 
 <div class="gallery-grid">
   {%- for artwork in artTag.artworks %}
-    {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date) }}
+    {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date, artwork.data.altText) }}
   {% endfor -%}
 </div>
 

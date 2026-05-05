@@ -4,6 +4,7 @@ date: 2022-08-22
 fileName: "my style of comic coloring.png"
 categories: [0]
 artTags: ["digital", "gimp", "full color", "still life"]
+altText: "A cup with two pencils and a pen and on a table"
 ---
 A **still life** (pl.: **still lifes**) is a work of art depicting mostly inanimate subject matter, typically commonplace objects which are either natural (food, flowers, dead animals, plants, rocks, shells, etc.) or human-made (drinking glasses, books, vases, jewelry, coins, pipes, etc.).
 
