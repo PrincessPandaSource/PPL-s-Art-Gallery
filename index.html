@@ -13,7 +13,7 @@ eleventyComputed:
 {% if pagination.pageNumber == 0 %}
 <div>
   <b>View by category:</b>
-  <ul id="category-list">
+  <ul id="category-list" class="piped-list">
   {% for category in artCategories %}
     <li><a href="/category/{{ category.name | slugify }}/">{{ category.name }}</a></li>
   {% endfor %}
