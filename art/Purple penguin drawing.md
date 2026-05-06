@@ -1,0 +1,15 @@
+---
+title: "Purple penguin drawing"
+date: 2014-03-23
+fileName: "Purple penguin drawing.png"
+categories: [2]
+artTags: ["digital", "ms paint", "flat color", "club penguin"]
+altText: "Crude drawing of purple Club Penguin penguin walking in the snow"
+---
+***[Club Penguin](https://en.wikipedia.org/wiki/Club_Penguin)*** was a massively multiplayer online game (MMO) that ran from 2005 to 2017. The game featured a virtual world that included a wide range of online games and activities. It was created by New Horizon Interactive (now known as Disney Canada Inc.). Players used cartoon penguin avatars and played in an Antarctic-themed open world. After beta-testing, *Club Penguin* was made available to the general public on October 24, 2005. It expanded into a large online community, such that by late 2007, *Club Penguin* reported that there were more than 30 million user accounts. In July 2013, Club Penguin had more than 200 million registered user accounts.
+
+While free memberships were available, revenue was predominantly raised through paid memberships, which allowed players to access a range of additional features, such as the ability to purchase virtual clothing, furniture, and in-game pets called "Puffles" for their penguins through the usage of in-game currency. The success of *Club Penguin* led to New Horizon being purchased by the Walt Disney Company in August 2007 for the sum of 350 million U.S. dollars, with an additional 350 million dollars in bonuses if specific targets were met by 2009.
+
+The game was specifically designed for children aged 6 to 14; however, users of any age were allowed to play. Consequently a major focus of the developers was on child safety, with several features facilitating this, including offering an "Ultimate Safe Chat" mode whereby users selected their comments from a menu, filtering that prevented swearing and the revelation of personal information, and using moderators who patrolled the game.
+
+*Club Penguin* shut down its servers on March 30, 2017 following an announcement on January 30, 2017; the game was replaced by *Club Penguin Island*, which itself was discontinued the following year. Since being shut down, the original game has been hosted and recreated on a number of private servers using downloaded SWF files from the game's old website. Many of the private servers were shut down around May 15, 2020, after Digital Millennium Copyright Act filings by the Walt Disney Company were sent on May 13, 2020. One of the most notable private servers, *Club Penguin Rewritten*, had launched on February 12, 2017, and accumulated an online community of more than 11 million users among the consequences and restrictions from the COVID-19 pandemic and its lockdowns. *Rewritten* was shut down on April 13, 2022, by the City of London Police in compliance with a copyright investigation request by Disney. 

@@ -36,8 +36,16 @@ export default function(eleventyConfig) {
             id: 2
         },
         {
+            name: "Sketches",
+            id: 5
+        },
+        {
             name: "Inktober 2019",
             id: 3
+        },
+        {
+            name: "Silver Scripts",
+            id: 4
         }
     ]
     // You can reorder the categories by reordering their entries in the array
@@ -72,7 +80,7 @@ export default function(eleventyConfig) {
 
         // Categories pagination
         let artByCategoriesPaged = [];
-        const pageSize = 20;
+        const pageSize = 21;
         for (const category in artByCategories) {
             // Reverse pages
             artByCategories[category].sort((a, b) => a.date > b.date).reverse();
@@ -109,7 +117,7 @@ export default function(eleventyConfig) {
 
         // Art tags pagination
         let artByTagsPaged = [];
-        const pageSize = 20;
+        const pageSize = 21;
         for (const tag in artByTags) {
             // Reverse pages
             artByTags[tag].sort((a, b) => a.date > b.date).reverse();

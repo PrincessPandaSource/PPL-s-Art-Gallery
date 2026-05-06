@@ -1,0 +1,13 @@
+---
+title: "The Consequences of Restoring Crisis City"
+date: 2016-08-21
+fileName: "sonic, crisis city, comic, humor, 001.jpg"
+categories: [1]
+artTags: ["traditional", "pencil", "colored pencil", "flat color", "comic", "silver the hedgehog", "floee the fox"]
+altText: "'(You will only get this if you played Sonic Generations)'. Silver and Floee have spawned in Crisis City in Silver's future. Silver says, 'Now we can go to my hou-' Upon realizing his surroundings, he gets shocked, yelling, 'WHAT THE IBLIS?!' The camera then zooms out to reveal the city on fire, with ruins, Iblis' minions, and a large sign of Sonic abound. Silver becomes angry and then bursts out into rage, 'I WILL KILL ANYONE WHO RETURNED THIS!' Floee replies, 'I think we should find a way to fix this.' 'Art and Floee the Fox by PrincessPandaLover. Everything else by Sega.'"
+---
+**[Apocalyptic and post-apocalyptic fiction](https://en.wikipedia.org/wiki/Apocalyptic_and_post-apocalyptic_fiction)** are subgenres of science fiction in which the Earth's (or another place's) civilization is collapsing or has collapsed. The apocalypse event may be climatic, such as runaway climate change; astronomical, an impact event; destructive, nuclear holocaust or resource depletion; medical, a pandemic, whether natural or human-caused; end time, such as the Last Judgment, Second Coming or Ragnarök; or any other scenario in which the outcome is apocalyptic, such as a zombie apocalypse, AI takeover, technological singularity, dysgenics/eugenics, natural disasters, or alien invasions.
+
+The story may involve attempts to prevent an apocalypse event, deal with the impact and consequences of the event itself, or it may be post-apocalyptic, set after the event. The time may be directly after the catastrophe, focusing on the psychology of survivors, the way to keep the human race alive and together as one, or considerably later, often including that the existence of pre-catastrophe civilization has been mythologized. Post-apocalyptic stories often take place in a non-technological future world or a world where only scattered elements of society and technology remain.
+
+Numerous ancient societies, including the Babylonian and Judaic, produced apocalyptic literature and mythology which dealt with the end of the world and human society, such as the *Epic of Gilgamesh*, written c. 2000–1500 BCE. Recognizable modern apocalyptic novels had existed since at least the first third of the 19th century, when Mary Shelley's *The Last Man* (1826) was published; however, this form of literature gained widespread popularity after World War II, when the possibility of global annihilation by nuclear weapons entered the public consciousness.
