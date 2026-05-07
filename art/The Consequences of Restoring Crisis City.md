@@ -1,7 +1,7 @@
 ---
 title: "The Consequences of Restoring Crisis City"
 date: 2016-08-21
-fileName: "sonic, crisis city, comic, humor, 001.jpg"
+fileName: "sonic crisis city comic humor 001.jpg"
 categories: [1]
 artTags: ["traditional", "pencil", "colored pencil", "flat color", "comic", "silver the hedgehog", "floee the fox"]
 altText: "'(You will only get this if you played Sonic Generations)'. Silver and Floee have spawned in Crisis City in Silver's future. Silver says, 'Now we can go to my hou-' Upon realizing his surroundings, he gets shocked, yelling, 'WHAT THE IBLIS?!' The camera then zooms out to reveal the city on fire, with ruins, Iblis' minions, and a large sign of Sonic abound. Silver becomes angry and then bursts out into rage, 'I WILL KILL ANYONE WHO RETURNED THIS!' Floee replies, 'I think we should find a way to fix this.' 'Art and Floee the Fox by PrincessPandaLover. Everything else by Sega.'"
