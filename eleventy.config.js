@@ -1,5 +1,6 @@
-import { DateTime } from "luxon";
 import lodash from "lodash";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { DateTime } from "luxon";
 
 export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
@@ -136,6 +137,9 @@ export default function(eleventyConfig) {
 
         return artByTagsPaged;
     })
+
+    // Image HTML transform
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 }
 
 // Set all HTML files to use Nunjunks
