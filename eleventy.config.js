@@ -1,4 +1,5 @@
 import lodash from "lodash";
+import path from "node:path";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { DateTime } from "luxon";
 
@@ -6,7 +7,7 @@ export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
     // not transferred by default
     eleventyConfig.addPassthroughCopy("styles");
-    eleventyConfig.addPassthroughCopy("img");
+    eleventyConfig.addPassthroughCopy("img/*.ico");
     eleventyConfig.addPassthroughCopy("scripts");
 
     // Remove trailing slashes from dead-end pages
@@ -139,7 +140,24 @@ export default function(eleventyConfig) {
     })
 
     // Image HTML transform
-    eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		formats: ["webp", "auto"],
+		widths: [768, 1280, 1920, "auto"],
+        filenameFormat: function (id, src, width, format, options) {
+            const extension = path.extname(src);
+            const name = path.basename(src, extension);
+
+            return `${name}-${width}.${format}`;
+        },
+		htmlOptions: {
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+                sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
+			},
+            fallback: "largest"
+		}
+	});
 }
 
 // Set all HTML files to use Nunjunks
