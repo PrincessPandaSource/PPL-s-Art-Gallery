@@ -28,7 +28,7 @@ layout: layouts/main.html
 
 <div id="img-modal" class="modal">
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
-    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img"/>
+    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
 </div>
 
 <script src="/scripts/imgModal.js" defer></script>
