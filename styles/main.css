@@ -78,6 +78,7 @@ main {
     padding: 15px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .gallery-item-art {
@@ -85,11 +86,21 @@ main {
     height: 100%;
     object-fit: contain;
     overflow: auto;
+    flex: 1;
 }
 
 .gallery-item p {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+.gallery-item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
 }
 
 .gallery-nav {
