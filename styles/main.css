@@ -158,10 +158,14 @@ picture.gallery-item-art {
     margin: auto;
 }
 
+.art-page-img-div picture {
+    height: 100%;
+    width: 100%;
+}
+
 .art-page-img-div img {
     object-fit: scale-down;
     height: 100%;
-    width: auto;
     max-width: 100%;
     cursor: pointer;
 }
