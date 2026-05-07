@@ -1,7 +1,7 @@
 {% macro galleryItem(fileName, title, date, altText) %}
 <a class="gallery-link" href="/art/{{ title | slugify }}">
     <div class="gallery-item">
-        <img class="gallery-item-art" src="/img/art/{{ fileName }}" width="500" alt="{{ altText }}" eleventy:pictureattr:class="gallery-item-art"/>
+        <img class="gallery-item-art" src="/img/art/{{ fileName }}" width="500" sizes="auto" alt="{{ altText }}" eleventy:pictureattr:class="gallery-item-art"/>
         <p class="gallery-item-title"><b>{{ title }}</b></p>
         <p>{{ date | artDate }}</p>
     </div>
