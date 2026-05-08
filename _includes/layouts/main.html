@@ -1,19 +1,55 @@
+---
+description: "An art gallery website template made with Eleventy"
+ogImage: "icon.png"
+ogImageAlt: "Pixel art icon of a picture frame"
+---
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
 
-        {% if title %}
-        <title>{{ title }} - Art gallery</title>
-        {% else %}
-        <title>Art gallery</title>
-        {% endif %}
-
-        <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+        {%- if title %}
+        <title>{{ title }} - {{ siteName }}</title>
+        {%- else %}
+        <title>{{ siteName }}</title>
+        {%- endif %}
+        {%- if page.url != "/404.html" %}
+        <meta name="description" content="{{ description }}">
+        {%- endif %}
+        <meta name="author" content="PrincessPandaLover">
+        <meta name="generator" content="{{ eleventy.generator }}">
 
         <link rel="stylesheet" type="text/css" href="/styles/main.css">
+        <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    
+        {%- if page.url != "/404.html" %}
+        <!--Open Graph-->
+        {%- if title %}
+        <meta property="og:title" content="{{ title }} - {{ siteName }}"/>
+        {%- else %}
+        <meta property="og:title" content="{{ siteName }}"/>
+        {%- endif %}
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="{{ siteURL }}/img/{{ ogImage }}"/>
+        <meta property="og:image:alt" content="{{ ogImageAlt }}" />
+        <meta property="og:url" content="{{ siteURL }}{{ page.url | stripExtension }}"/>
+        <meta property="og:description" content="{{ description }}"/>
+
+        <!--Twitter Card-->
+        <meta name="twitter:card" content="{% if summaryLargeImage %}summary_large_image{% else %}summary{% endif %}">
+        <meta name="twitter:site" content="@PrincPandaTweet">
+        {%- if title %}
+        <meta property="twitter:title" content="{{ title }} - {{ siteName }}"/>
+        {%- else %}
+        <meta property="twitter:title" content="{{ siteName }}"/>
+        {%- endif %}
+        <meta property="twitter:url" content="{{ siteURL }}{{ page.url | stripExtension }}"/>
+        <meta name="twitter:description" content="{{ description }}">
+        <meta name="twitter:image" content="{{ siteURL }}/img/{{ ogImage }}">
+        <meta property="twitter:image:alt" content="{{ ogImageAlt }}" />
+        {%- endif %}
+
     </head>
 
     <body>

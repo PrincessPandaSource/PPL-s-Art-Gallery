@@ -7,7 +7,7 @@ export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
     // not transferred by default
     eleventyConfig.addPassthroughCopy("styles");
-    eleventyConfig.addPassthroughCopy("img/*.ico");
+    eleventyConfig.addPassthroughCopy("img");
     eleventyConfig.addPassthroughCopy("scripts");
 
     // Remove trailing slashes from dead-end pages
@@ -21,6 +21,11 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("artDate", (dateString) => {
         const dateObj = new Date(dateString);
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
+    });
+
+    // Filter for stripping file extension
+    eleventyConfig.addFilter("stripExtension", (filename) => {
+        return filename.replace(/\.[^/.]+$/, "")
     });
 
     // SET ART CATEGORIES HERE

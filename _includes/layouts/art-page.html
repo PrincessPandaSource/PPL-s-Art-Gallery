@@ -1,5 +1,10 @@
 ---
 layout: layouts/main.html
+eleventyComputed:
+    description: "Example artwork page for an art gallery website template made with Eleventy"
+    ogImage: "art/{{ fileName }}"
+    ogImageAlt: "{{ altText }}"
+    summaryLargeImage: true
 ---
 <div class="art-page-img-div">
     <img src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
