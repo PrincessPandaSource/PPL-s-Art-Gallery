@@ -1,7 +1,7 @@
 ---
 title: "Purple penguin drawing"
 date: 2014-03-23
-fileName: "Purple penguin drawing.png"
+fileName: "purple-penguin-drawing.png"
 categories: [2]
 artTags: ["digital", "ms paint", "flat color", "club penguin"]
 altText: "Crude drawing of purple Club Penguin penguin walking in the snow"

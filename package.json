@@ -6,6 +6,7 @@
     "start": "eleventy --serve",
     "build": "eleventy",
     "clean": "rmdir /s /q _site",
+    "slugifyImageNames": "renamer --chain slugify_filename.js img/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,5 +19,8 @@
     "@11ty/eleventy-img": "^6.0.4",
     "lodash": "^4.18.1",
     "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "renamer": "^5.0.3"
   }
 }

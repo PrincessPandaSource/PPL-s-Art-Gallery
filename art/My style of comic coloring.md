@@ -1,7 +1,7 @@
 ---
 title: "My style of comic coloring"
 date: 2022-08-22
-fileName: "my style of comic coloring.png"
+fileName: "my-style-of-comic-coloring.png"
 categories: [0]
 artTags: ["digital", "gimp", "full color", "still life"]
 altText: "A cup with two pencils and a pen and on a table"

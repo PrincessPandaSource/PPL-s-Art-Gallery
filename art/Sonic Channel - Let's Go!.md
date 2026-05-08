@@ -1,7 +1,7 @@
 ---
 title: "Sonic Channel July 2020 - Let's Go!"
 date: 2020-06-17
-fileName: "Sonic Channel July 2020 - Lets Go!.png"
+fileName: "sonic-channel-july-2020-lets-go.png"
 categories: [1]
 artTags: ["digital", "gimp", "full color", "sonic the hedgehog", "miles tails prower", "knuckles the echidna", "amy rose"]
 altText: "Sonic and his friends in a sunny forest clearing and wearing backpacks. Sonic is pointing upwards and exclaiming 'Let's go!' Tails is looking up with binoculars in his hands. Meanwhile, Knuckles is dozing off and thinking of the Master Emerald, and Amy is trying to wake him up."

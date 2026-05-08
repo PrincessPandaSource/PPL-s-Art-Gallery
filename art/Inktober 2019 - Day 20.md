@@ -1,7 +1,7 @@
 ---
 title: "Inktober 2019 - Day 20 - Tread"
 date: 2019-10-20
-fileName: "Day 20 - Tread.jpg"
+fileName: "day-20-tread.jpg"
 categories: [3, 0]
 artTags: ["traditional", "ink", "black and white", "non-anthro animal", "snake", "fox"]
 altText: "Ink drawing of curled-up rattlesnake exclaiming to the fox, 'Don't tread on me'. Large text reads 'Day 20: TREAD'."

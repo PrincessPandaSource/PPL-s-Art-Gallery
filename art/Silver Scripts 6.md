@@ -1,7 +1,7 @@
 ---
 title: "Silver Scripts - It's the Same Teacher!"
 date: 2026-01-27
-fileName: "Silver Scripts 6.png"
+fileName: "silver-scripts-6.png"
 categories: [4, 1]
 artTags: ["digital", "krita", "black and white", "comic", "sonic au", "silver the hedgehog", "tikal the echidna"]
 altText: "The crayfish professor walks to the table in the lecture hall and announces, 'Hello, students. Welcome to Software Engineering I! Hope you read the syllabus...'. Silver and Tikal are sitting at their desks with their laptops open. Silver sees the professor and exclaims, 'It's Doctor Riverbend, the same professor as Systems and C Programming!' He then asks, 'If he teaches that amount of classes, then how much free time does he have?' Tikal replies, 'He must be a workaholic.' As Silver plays a game on his laptop (with 'footsteps' and 'boop' sound effects), he mutters, 'I'd die if I had that much work, and I'm already suffering.' With her notebook, Tikal responds, 'Me too.'"

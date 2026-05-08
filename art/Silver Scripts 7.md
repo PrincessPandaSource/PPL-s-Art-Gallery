@@ -1,7 +1,7 @@
 ---
 title: "Silver Scripts - Mid-College Crisis Check"
 date: 2026-04-27
-fileName: "Silver Scripts 7.png"
+fileName: "silver-scripts-7.png"
 categories: [4, 1]
 artTags: ["digital", "krita", "black and white", "comic", "sonic au", "silver the hedgehog", "tikal the echidna"]
 altText: "Silver and Tikal are walking outside. Silver exclaims, 'There were no technical things? Just design philosophy? This'll be a cakewalk!' Tikal walks away from Silver and waves him goodbye, saying, 'See you later, Silver! I'll invite you to my team.' Silver continues walking on his own, thinking, 'Those algorithms will be the end of me...' He then pulls up his phone, messaging, 'Blaze, wsp?'"

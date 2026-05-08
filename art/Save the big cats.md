@@ -1,7 +1,7 @@
 ---
 title: "Save the big cats"
 date: 2013-01-06
-fileName: "Save the big cats.png"
+fileName: "save-the-big-cats.png"
 categories: [2]
 artTags: ["digital", "ms paint", "flat color", "animal jam", "lion", "cheetah", "tiger", "non-anthro animal"]
 altText: "Crude drawing of a lion, cheetah, and tiger. Large text reads 'SAVE THE BIG CATS!'"

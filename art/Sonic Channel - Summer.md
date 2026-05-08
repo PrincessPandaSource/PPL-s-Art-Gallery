@@ -1,7 +1,7 @@
 ---
 title: "Sonic Channel August 2020 - Summer (unfinished)"
 date: 2020-07-18
-fileName: "Sonic Channel August 2020 - Summer.png"
+fileName: "sonic-channel-august-2020-summer.png"
 categories: [1]
 artTags: ["digital", "gimp", "full color", "sonic the hedgehog", "miles tails prower", "amy rose", "knuckles the echidna", "shadow the hedgehog", "espio the chameleon", "blaze the cat", "silver the hedgehog", "chao"]
 altText: "Sonic, Tails, Amy, Knuckles, Shadow, Espio, Blaze, and Silver speeding to the beach in swimwear. There are some Chao in the way."

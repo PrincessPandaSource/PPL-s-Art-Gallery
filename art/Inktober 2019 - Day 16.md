@@ -1,7 +1,7 @@
 ---
 title: "Inktober 2019 - Day 16 - Wild"
 date: 2019-10-16
-fileName: "Day 16 - Wild.jpeg"
+fileName: "day-16-wild.jpeg"
 categories: [3, 1]
 artTags: ["traditional", "ink", "black and white", "sticks the badger", "flicky"]
 altText: "Ink drawing of Sticks crouching down and holding a boomerang, which a Flicky is perching on. Large text reads 'Day 16: WILD'."

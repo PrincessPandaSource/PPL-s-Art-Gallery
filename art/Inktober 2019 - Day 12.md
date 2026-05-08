@@ -1,7 +1,7 @@
 ---
 title: "Inktober 2019 - Day 12 - Dragon"
 date: 2019-10-12
-fileName: "Day 12 - Dragon.jpeg"
+fileName: "day-12-dragon.jpeg"
 categories: [3, 0]
 artTags: ["traditional", "ink", "black and white", "non-anthro animal", "dragon"]
 altText: "Ink drawing of a Chinese dragon. Large text reads 'Day 4: DRAGON'."

@@ -1,7 +1,7 @@
 ---
 title: "Inktober 2019 - Day 4 - Freeze"
 date: 2019-10-04
-fileName: "Day 4 - Freeze.jpeg"
+fileName: "day-4-freeze.jpeg"
 categories: [3, 2]
 artTags: ["traditional", "ink", "black and white", "super smash bros", "ice climbers", "piranha plant"]
 altText: "Ink drawing of the Ice Climbers freezing Piranha Plant. Large, sideways text on left reads 'Day 4: FREEZE'."

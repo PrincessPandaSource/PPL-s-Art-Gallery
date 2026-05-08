@@ -1,7 +1,7 @@
 ---
 title: "Young Babylon Rogues"
 date: 2020-06-26
-fileName: "Young Babylon Rogues.png"
+fileName: "young-babylon-rogues.png"
 categories: [1]
 artTags: ["digital", "gimp", "full color", "jet the hawk", "wave the swallow", "storm the albatross"]
 altText: "Wave and Storm, both as children, stand in a desert oasis in the sunset. Waves asks, 'When will our parents come back home? It's getting late.' Meanwhile, Jet, as a baby, is sitting down and teething on a toy Extreme Gear."
