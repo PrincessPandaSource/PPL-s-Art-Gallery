@@ -87,7 +87,7 @@ export default function(eleventyConfig) {
 
         // Categories pagination
         let artByCategoriesPaged = [];
-        const pageSize = 21;
+        const pageSize = 24;
         for (const category in artByCategories) {
             // Reverse pages
             artByCategories[category].sort((a, b) => a.date > b.date).reverse();
@@ -124,7 +124,7 @@ export default function(eleventyConfig) {
 
         // Art tags pagination
         let artByTagsPaged = [];
-        const pageSize = 21;
+        const pageSize = 24;
         for (const tag in artByTags) {
             // Reverse pages
             artByTags[tag].sort((a, b) => a.date > b.date).reverse();
