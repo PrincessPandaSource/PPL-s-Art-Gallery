@@ -24,9 +24,9 @@ eleventyComputed:
 {% endif %}
 
 <div class="gallery-grid">
-  {%- for artwork in pagination.items %}
+  {% for artwork in pagination.items %}
     {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date, artwork.data.altText) }}
-  {% endfor -%}
+  {% endfor %}
 </div>
 
 {%- if pagination.href.previous or pagination.href.next %}

@@ -6,8 +6,10 @@ description: "About page for an art gallery website template made with Eleventy"
 ogImage: "mythical-avatar-1.png"
 ogImageAlt: "Mythical the wolf's smiling face with hearts for eyes"
 ---
+{%- import "components/plainPage.njk" as c %}
+
 <h2>About</h2>
-<img src="/img/mythical-avatar-1.png" class="right-plain-img" width="500" sizes="auto" style="max-width:250px; height:auto" alt="Mythical the wolf's smiling face with hearts for eyes">
+{{ c.plainImg("/img/mythical-avatar-1.png", "Mythical the wolf's smiling face with hearts for eyes", 250, "right") }}
 
 <p>This is the About subpage where you can write about yourself or your work. Like artwork descriptions, you are able to insert images, or just about any HTML element.</p>
 
