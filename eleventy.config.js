@@ -10,6 +10,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("img");
     eleventyConfig.addPassthroughCopy("scripts");
+    eleventyConfig.addPassthroughCopy("robots.txt");
 
     // Remove trailing slashes from dead-end pages
 	/*eleventyConfig.addGlobalData("permalink", () => {
