@@ -28,7 +28,7 @@
       <title>{{ artwork.data.title }}</title>
       <link>{{ absolutePostUrl }}</link>
       <description>
-        <![CDATA[<img alt="{{ artwork.data.altText }}" src="{{ siteURL }}/img/art/{{ artwork.data.fileName }}" />]]>
+        <![CDATA[<img alt="{{ artwork.data.altText }}" src="{{ siteSettings.siteURL }}/img/art/{{ artwork.data.fileName }}" />]]>
         
         {{ artwork.content | renderTransforms(artwork.data.page, metadata.base) }}
       </description>
