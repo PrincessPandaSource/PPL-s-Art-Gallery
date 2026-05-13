@@ -2,6 +2,7 @@ import lodash from "lodash";
 import path from "node:path";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { DateTime } from "luxon";
+import pluginRss from "@11ty/eleventy-plugin-rss";
 
 export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
@@ -164,6 +165,16 @@ export default function(eleventyConfig) {
             fallback: "largest"
 		}
 	});
+
+    // For RSS feed
+    eleventyConfig.addPlugin(pluginRss);
+
+    // Transforms date for RSS feed
+    eleventyConfig.addFilter("RSSDate", (dateObj) => {
+        const date = new Date(dateObj);
+        date.setUTCHours(12, 0, 0, 0);
+        return date.toUTCString();
+    });
 }
 
 // Set all HTML files to use Nunjunks
