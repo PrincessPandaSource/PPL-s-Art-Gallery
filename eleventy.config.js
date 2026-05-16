@@ -1,8 +1,9 @@
 import lodash from "lodash";
 import path from "node:path";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { DateTime } from "luxon";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginRss from "@11ty/eleventy-plugin-rss";
+import { execSync } from 'child_process';
 
 export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
@@ -166,6 +167,11 @@ export default function(eleventyConfig) {
             fallback: "largest"
 		}
 	});
+
+    // Run Pagefind index after building site
+	eleventyConfig.on('eleventy.after', () => {
+		execSync(`npx -y pagefind --site _site --glob art/*.html`, { encoding: 'utf-8' })
+	})
 
     // For RSS feed
     eleventyConfig.addPlugin(pluginRss);
