@@ -14,11 +14,18 @@ ogImageAlt: "Pixel art icon of a picture frame"
         {%- else %}
         <title>{{ siteSettings.siteName }}</title>
         {%- endif %}
+
         {%- if page.url != "/404.html" %}
         <meta name="description" content="{{ description }}">
         {%- endif %}
         <meta name="author" content="PrincessPandaLover">
         <meta name="generator" content="{{ eleventy.generator }}">
+
+        {%- if page.url == "/search.html" -%}
+        <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+        <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+        <script src="/scripts/search.js" type="module"></script>
+        {%- endif -%}
 
         <link rel="stylesheet" type="text/css" href="/styles/main.css">
         <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -60,6 +67,14 @@ ogImageAlt: "Pixel art icon of a picture frame"
                 <ul class="piped-list">
                     <li><a href="/about">About</a></li>
                     <li><a href="/feed.xml">RSS feed</a></li>
+                    <li>
+                        <form id="search-bar-form" action="/search">
+                            <div class="search-bar-div">
+                                <input type="search" id="search-bar" name="q" size="10" placeholder="Search gallery..." />
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                    </li>
                 </ul>
             </header>
 

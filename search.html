@@ -1,0 +1,16 @@
+---
+layout: layouts/main.html
+title: Search
+permalink: /search.html
+---
+<h2>Gallery search</h2>
+<form action="/search">
+    <div class="search-page-bar-div">
+        <input type="search" id="search-page-bar" name="q" size="30" placeholder="Search gallery..." />
+        <button type="submit">Go</button>
+    </div>
+</form>
+
+<pagefind-summary></pagefind-summary>
+
+<pagefind-results show-images="true"></pagefind-results>
