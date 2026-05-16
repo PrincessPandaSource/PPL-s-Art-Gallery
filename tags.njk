@@ -3,6 +3,7 @@ pagination:
     data: collections.artByTags
     size: 1
     alias: artTag
+    addAllPagesToCollections: true
 permalink: "/tag/{{ artTag.tag | slugify }}/{%- if artTag.pageNumber > 1 %}{{ artTag.pageNumber }}.html{%- endif %}"
 eleventyComputed:
     layout: layouts/main.html

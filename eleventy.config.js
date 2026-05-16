@@ -173,6 +173,12 @@ export default function(eleventyConfig) {
 		execSync(`npx -y pagefind --site _site --glob "art/*.{html}"`, { encoding: 'utf-8' })
 	})
 
+    // Filter for processing date to "YYYY-MM-DD" format
+    // Such as in the sitemap
+    eleventyConfig.addFilter("numDate", (dateObj) => {
+        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-MM-dd');
+    });
+
     // For RSS feed
     eleventyConfig.addPlugin(pluginRss);
 

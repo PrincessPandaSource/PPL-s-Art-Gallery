@@ -4,6 +4,7 @@ pagination:
   data: collections.artGallery
   size: 24
   reverse: true
+  addAllPagesToCollections: true
 permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}
 eleventyComputed:
   title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }}{% endif %}"
