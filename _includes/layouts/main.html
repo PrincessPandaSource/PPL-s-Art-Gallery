@@ -23,7 +23,11 @@ ogImageAlt: "Pixel art icon of a picture frame"
 
         {%- if page.url == "/search.html" -%}
         <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+
+        <link rel="modulepreload" href="/pagefind/pagefind-component-ui.js" />
         <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+        <link rel="modulepreload" href="/scripts/search.js" />
         <script src="/scripts/search.js" type="module"></script>
         {%- endif -%}
 
