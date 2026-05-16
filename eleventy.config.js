@@ -170,7 +170,7 @@ export default function(eleventyConfig) {
 
     // Run Pagefind index after building site
 	eleventyConfig.on('eleventy.after', () => {
-		execSync(`npx -y pagefind --site _site --glob art/*.html`, { encoding: 'utf-8' })
+		execSync(`npx -y pagefind --site _site --glob "art/*.{html}"`, { encoding: 'utf-8' })
 	})
 
     // For RSS feed
