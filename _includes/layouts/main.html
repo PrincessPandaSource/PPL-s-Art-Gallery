@@ -70,7 +70,7 @@ ogImageAlt: "Pixel art icon of a picture frame"
                     <li>
                         <form id="search-bar-form" action="/search">
                             <div class="search-bar-div">
-                                <input type="search" id="search-bar" name="q" size="10" placeholder="Search gallery..." />
+                                <input type="search" id="search-bar" name="q" size="20" placeholder="Search gallery..." />
                                 <button type="submit">Search</button>
                             </div>
                         </form>
@@ -78,7 +78,7 @@ ogImageAlt: "Pixel art icon of a picture frame"
                 </ul>
             </header>
 
-            <main>
+            <main data-pagefind-body>
                 {{ content | safe }}
             </main>
 

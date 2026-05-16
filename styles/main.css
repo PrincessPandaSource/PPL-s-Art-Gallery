@@ -1,4 +1,18 @@
+:root {
+    --body-font: 'Times New Roman';
+
+    --gallery-grid-columns: repeat(auto-fill, 280px);
+    --gallery-grid-gap: 30px;
+
+    /* Pagefind CSS */
+    --pf-font: var(--body-font);
+    --pf-results-display: grid;
+    --pf-results-columns: var(--gallery-grid-columns);
+    --pf-results-gap: var(--gallery-grid-gap);
+}
+
 body {
+    font-family: var(--body-font);
     background-color: #808080;
     margin: 0;
     padding: 0;
@@ -58,12 +72,12 @@ main {
     margin-left: 20px;
 }
 
-.gallery-grid {
+.gallery-grid, .pf-results {
     display: grid;
     grid-template-columns: repeat(auto-fill, 280px);
     grid-auto-rows: 280px;
     gap: 30px;
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .gallery-link {
@@ -222,6 +236,12 @@ hr.hr-line {
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.search-page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 footer {

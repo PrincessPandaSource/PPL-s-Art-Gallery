@@ -4,13 +4,32 @@ title: Search
 permalink: /search.html
 ---
 <h2>Gallery search</h2>
-<form action="/search">
-    <div class="search-page-bar-div">
-        <input type="search" id="search-page-bar" name="q" size="30" placeholder="Search gallery..." />
-        <button type="submit">Go</button>
-    </div>
-</form>
 
-<pagefind-summary></pagefind-summary>
+<p>Powered by <a href="https://pagefind.app/">Pagefind</a></p>
 
-<pagefind-results show-images="true"></pagefind-results>
+<div class="search-page">
+    <form action="/search">
+        <div class="search-page-bar-div">
+            <input type="search" id="search-page-bar" name="q" size="40" placeholder="Search gallery..." />
+            <button type="submit">Go</button>
+        </div>
+    </form>
+
+    <pagefind-summary></pagefind-summary>
+
+    <pagefind-results>
+        <script type="text/pagefind-template">
+            {# Required so that Nunjucks doesn't process the templates initially #}
+            {# Yeah, I had to copy and paste the gallery item component code #}
+            {% raw %}
+            <a class="gallery-link" href="{{ url | safeUrl }}">
+                <div class="gallery-item">
+                    <img class="gallery-item-art" src="{{ meta.image }}" width="500" sizes="auto" alt="{{ meta.image_alt }}" eleventy:pictureattr:class="gallery-item-art"/>
+                    <p class="gallery-item-title"><b>{{ meta.title }}</b></p>
+                    <p>{{ meta.date }}</p>
+                </div>
+            </a>
+            {% endraw %}
+        </script>
+    </pagefind-results>
+</div>

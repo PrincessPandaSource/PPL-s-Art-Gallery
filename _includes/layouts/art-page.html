@@ -7,13 +7,13 @@ eleventyComputed:
     summaryLargeImage: true
 ---
 <div class="art-page-img-div">
-    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
+    <img data-pagefind-meta="image[src], image_alt[alt]" src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
 </div>
 
-<h2>{{ title }}</h2>
-<p>{{ date | artDate }}</p>
+<h2 data-pagefind-meta="title">{{ title }}</h2>
+<p data-pagefind-meta="date">{{ date | artDate }}</p>
 
-<p class="p-categories"><span>Categories:</span>
+<p class="p-categories"><span data-pagefind-ignore>Categories:</span>
 {%- for cateId in categories %}
     {%- set category = "test" %}
     {%- for object in artCategories %}
@@ -21,17 +21,17 @@ eleventyComputed:
             {%- set category = object.name %}
         {%- endif %}
     {%- endfor %}
-    <a class="art-tag" href="/category/{{ category | slugify }}/">{{ category }}</a>
+    <a class="art-tag" href="/category/{{ category | slugify }}/">{{ category }}</a> 
 {%- endfor %}
 </p>
 
-<p class="p-tags"><span>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a>{% endfor %}</p>
+<p class="p-tags"><span data-pagefind-ignore>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
 
 <hr class="hr-line">
 
 {{ content | safe }}
 
-<div id="img-modal" class="modal">
+<div data-pagefind-ignore id="img-modal" class="modal">
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
     <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
 </div>
