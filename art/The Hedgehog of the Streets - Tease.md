@@ -1,0 +1,15 @@
+---
+title: "The Hedgehog of the Streets - Tease"
+date: 2020-05-31
+fileName: "the-hedgehog-of-the-streets-tease.png"
+categories: [1]
+artTags: ["digital", "gimp", "full color", "sonic au", "shipping", "shadaze", "shadow the hedgehog", "blaze the cat", "sonic the hedgehog"]
+altText: "In an alley during the night, Shadow, dressed in a white top, black jacket, and gray pants, teases his girlfriend Blaze, with long hair down and wearing a pink one-strap top and purple shorts, by pretending to steal her purse. Graffiti behind reads 'SHADAZE' (partially) and shows a heart between the couple. Meanwhile, police officer Sonic takes a peek."
+---
+**["Criminal"](https://en.wikipedia.org/wiki/Criminal_(Britney_Spears_song))** is the fourth and final single from American singer Britney Spears' seventh studio album, *Femme Fatale* (2011). "Criminal" was written and produced by Max Martin and Shellback, with additional writing by Tiffany Amber. After Spears first listened to the song, she felt it was different and unlike anything she had heard before. She posted a snippet of it online on March 2, 2011, prior to the album's release. "Criminal" was chosen as a single by a poll on her Facebook page, as Spears explained it was a way to give back to her fans. The artwork for the single was released on September 14, 2011.
+
+"Criminal" is a guitar and synth-driven mid-tempo song which incorporates a folk-style flute melody. It is considered one of the few ballads on *Femme Fatale*, and is less aggressive than the other songs of the album. "Criminal" is influenced by the works of ABBA and Madonna. In the song, Spears sings about being in love with a bad boy and outlaw, and pleads to her mother to not worry about their relationship. "Criminal" received positive critical response, with reviewers praising its organic and refreshing feel in comparison with the rest of the album. After the release of *Femme Fatale*, the song charted on the South Korean International chart. "Criminal" has also charted in major markets such as Canada, France, Sweden, Switzerland, Brazil and the United States.
+
+The accompanying music video for the song was filmed at Dalston and Stoke Newington, London. It features Spears as a woman in upper society and follows her relationship with a criminal, played by her then real-life boyfriend Jason Trawick. Prior to its release, London officials criticized Spears for shooting scenes with a replica gun and glamorizing violence. The video received a positive response from critics, with some calling it the best music video from *Femme Fatale*. Reviewers also perceived parallels between the video and Spears's personal life.
+
+A revival in interest for the song occurred when it went viral on TikTok, particularly with the "Mugshot Challenge". It has since become Spears' fourth most liked music video on YouTube; and in October 2020, the single reached a new peak of daily listeners on Spotify with 128,000 streams occurring on October 2.

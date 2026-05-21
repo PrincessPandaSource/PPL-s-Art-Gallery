@@ -1,0 +1,13 @@
+---
+title: "Sonic's Confession - Page 1"
+date: 2018-10-04
+fileName: "sonics-confession-page-1.jpeg"
+categories: [1]
+artTags: ["traditional and digital", "pencil", "ink", "black and white", "comic", "sonic the hedgehog", "amy rose"]
+altText: "Sonic, wearing a sleeveless shirt and pants, walks to and enters his house. As he drops his backpack on the couch, the phone in his pocket rings a 'DING!'. The phone up close reads a text conversation: 'Amy: [4 hearts], Sonic: ????, Amy: You're cute., Sonic: Wow, thanks., Amy: Sonic, do you love me?' Sonic annoyingly texts back, with 'tap' sound effects, 'Amy, this is the googolth time you've said something like this!' Sonic slumps back on the couch and mutters, 'Why does Amy want my attention so much?'"
+---
+A **[confession](https://en.wikipedia.org/wiki/Confession)** is a statement – made by a person or by a group of people – acknowledging some personal fact that the person (or the group) would ostensibly prefer to keep hidden. The term presumes that the speaker is providing information that they believe the other party is not already aware of, and is frequently associated with an admission of a moral or legal wrong:
+
+> In one sense it is the acknowledgment of having done something wrong, whether on purpose or not. Thus confessional texts usually provide information of a private nature previously unavailable. What a sinner tells a priest in the confessional, the documents criminals sign acknowledging what they have done, an autobiography in which the author acknowledges mistakes, and so on, are all examples of confessional texts.
+
+Not all confessions reveal wrongdoing, however. For example, a confession of love is often considered positive both by the confessor and by the recipient of the confession and is a common theme in literature. With respect to confessions of wrongdoing, there are several specific kinds of confessions that have significance beyond the social. A legal confession involves an admission of some wrongdoing that has a legal consequence, while the concept of confession in religion varies widely across various belief systems, and is usually more akin to a ritual by which the person acknowledges thoughts or actions considered sinful or morally wrong within the confines of the confessor's religion. In some religions, confession takes the form of an oral communication to another person. Socially, however, the term may refer to admissions that are neither legally nor religiously significant. 
