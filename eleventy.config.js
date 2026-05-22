@@ -190,7 +190,8 @@ export default function(eleventyConfig) {
     });
 }
 
-// Set all HTML files to use Nunjunks
+// Set all HTML and Markdown files to use Nunjunks
 export const config = {
     htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk"
 };
