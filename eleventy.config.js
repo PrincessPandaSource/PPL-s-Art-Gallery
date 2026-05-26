@@ -8,8 +8,9 @@ import { execSync } from 'child_process';
 export default function(eleventyConfig) {
     // Copies the following to the build, for that they are
     // not transferred by default
-    eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("img");
+    eleventyConfig.addPassthroughCopy("styles");
+    eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addPassthroughCopy("robots.txt");
 
