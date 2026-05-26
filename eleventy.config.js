@@ -152,6 +152,8 @@ export default function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		formats: ["webp", "auto"],
 		widths: [768, 1280, 1920, "auto"],
+        outputDir: "_site/",
+        urlPath: "/",
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src);
             const name = path.basename(src, extension);
