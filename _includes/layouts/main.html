@@ -15,6 +15,8 @@ ogImageAlt: "Pixel art icon of a picture frame"
         <title>{{ siteSettings.siteName }}</title>
         {% endif %}
 
+        <meta name="robots" content="noarchive">
+
         {% if page.url != "/404.html" -%}
         <meta name="description" content="{{ description }}">
         {% endif %}
@@ -62,7 +64,6 @@ ogImageAlt: "Pixel art icon of a picture frame"
         <meta name="twitter:image" content="{{ siteSettings.siteURL }}/img/{{ ogImage }}">
         <meta property="twitter:image:alt" content="{{ ogImageAlt }}" />
         {%- endif %}
-
     </head>
 
     <body>
