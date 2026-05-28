@@ -1,7 +1,7 @@
 ---
 description: "An art gallery website template made with Eleventy"
-ogImage: "icon.png"
-ogImageAlt: "Pixel art icon of a picture frame"
+ogImage: "icon-og.png"
+ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's silhouette"
 ---
 <!doctype html>
 <html lang="en">
@@ -69,7 +69,12 @@ ogImageAlt: "Pixel art icon of a picture frame"
     <body>
         <div class="wrapper">
             <header>
-                <h1 class="header-title"><a href="/">PPL's Art Gallery</a></h1>
+                <a class="header-title-link" href="/">
+                    <div class="header-title">
+                        <img class="logo" src="/img/icon.svg" loading="eager" fetchpriority="high" alt="Simple icon of framed picture showing heart and Mythical the wolf's silhouette">
+                        <h1 class="header-title-text">PPL's Art Gallery</h1>
+                    </div>
+                </a>
 
                 <ul class="piped-list">
                     <li><a href="/about">About</a></li>

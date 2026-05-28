@@ -150,7 +150,7 @@ export default function(eleventyConfig) {
 
     // Image HTML transform
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		formats: ["webp", "auto"],
+		formats: ["webp", "svg", "auto"],
 		widths: [768, 1280, 1920, "auto"],
         outputDir: "_site/",
         urlPath: "/",
@@ -168,7 +168,8 @@ export default function(eleventyConfig) {
                 sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
 			},
             fallback: "largest"
-		}
+		},
+        svgShortCircuit: "size"
 	});
 
     // Run Pagefind index after building site
