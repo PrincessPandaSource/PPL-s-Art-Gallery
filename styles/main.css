@@ -81,14 +81,15 @@ header {
 }
 
 .header-title-link {
-    width: 55%;
+    width: 100%;
     margin: auto;
     margin-bottom: 1.5em;
 }
 
 .header-title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
     align-items: center;
 }
 
@@ -340,8 +341,8 @@ footer {
         width: 100%;
     }
 
-    .header-title-link {
-        width: 100%;
+    .header-title {
+        gap: 13px;
     }
 
     .logo {
@@ -355,8 +356,8 @@ footer {
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1365px) {
-    .header-title-link {
-        width: 60%;
+    .header-title {
+        gap: 40px;
     }
 
     .logo {
