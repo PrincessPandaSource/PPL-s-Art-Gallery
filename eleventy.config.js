@@ -1,3 +1,11 @@
+/* This is file is used to configure Eleventy with JavaScript, such as adding
+Nunjucks filters, creating and fine-tuning page collections, and running
+terminal commands. This is where you specify artwork categories.
+
+Other modifications are only recommended if you have some prior experience
+with Eleventy and JavaScript. You can get started with Eleventy by reading
+the docs: https://www.11ty.dev/docs/ */
+
 import lodash from "lodash";
 import path from "node:path";
 import { DateTime } from "luxon";
@@ -6,28 +14,39 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import { execSync } from 'child_process';
 
 export default function(eleventyConfig) {
-    // Copies the following to the build, for that they are
-    // not transferred by default
+    // Copies the following directories and files to the build,
+    // for that they are not transferred by default
+
+    // This copies all original images to the build,
+    // so that users can still find them
     eleventyConfig.addPassthroughCopy("img");
+
+    // If you want to exclude artwork images,
+    // use this option
+    /*eleventyConfig.addPassthroughCopy("img", {
+        debug: true,
+        filter: ["*", "!art"]
+    });*/
+
+    // You can manually specify certain images to be
+    // copied instead, also
+    //eleventyConfig.addPassthroughCopy("img/*.ico"); // All ICO images
+    //eleventyConfig.addPassthroughCopy("img/icon-og.png");
+
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("scripts");
-    eleventyConfig.addPassthroughCopy("robots.txt");
-
-    // Remove trailing slashes from dead-end pages
-	/*eleventyConfig.addGlobalData("permalink", () => {
-		return (data) =>
-			`${data.page.filePathStem}.${data.page.outputFileExtension}`;
-	});*/
 
     // Filter for processing date into full format with full month name
-    // and all
+    // and all (with Luxon)
     eleventyConfig.addFilter("artDate", (dateString) => {
         const dateObj = new Date(dateString);
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
+        // UTC time must be used so that date doesn't rely on local time zone
+        // and thus goes off
     });
 
-    // Filter for stripping file extension
+    // Filter for stripping file extension, relying on Regex
     eleventyConfig.addFilter("stripExtension", (filename) => {
         return filename.replace(/\.[^/.]+$/, "")
     });
@@ -64,19 +83,25 @@ export default function(eleventyConfig) {
     // Allows other files to access the artCategories array
     eleventyConfig.addGlobalData("artCategories", artCategories);
 
-    // Creates double pagination for art categories
+    // Creates double pagination for the art categories set above
+    // (You can set amount of artwork per page here)
     // Code source: https://www.codeflood.net/blog/2024/04/17/11ty-nested-pagination/
     eleventyConfig.addCollection("artByCategories", function(collectionApi) {
+        // Get all artworks
         const artworks = collectionApi.getFilteredByTag("artGallery");
 
-        // Get art by categories
+        // Create array of categories with their artworks
         let artByCategories = new Array();
 
+        // For each artwork
         artworks.forEach(artwork => {
+            // Gets its category IDs
             const artsCate = artwork.data.categories;
+            // For each of the category IDs
             artsCate.forEach(cateId => {
                 let category = "test";
 
+                // Match ID with category
                 for (const i in artCategories) {
                     if (artCategories[i].id == cateId) {
                         category = artCategories[i].name;
@@ -84,20 +109,25 @@ export default function(eleventyConfig) {
                     }
                 }
 
+                // If category is not in array, put it in
                 if (!artByCategories[category]) artByCategories[category] = [];
+                // Category gets the artwork
                 artByCategories[category].push(artwork);
             });
         });
 
-        // Categories pagination
+        // Create array of paged sets of artworks per category
         let artByCategoriesPaged = [];
-        const pageSize = 24;
+        const pageSize = 24; // SET NUMBER OF ARTWORK PER PAGE
+        // For each used category
         for (const category in artByCategories) {
-            // Reverse pages
+            // Reverse order of artworks per category
             artByCategories[category].sort((a, b) => a.date > b.date).reverse();
 
+            // Calculate total number of pages needed
             const totalPages = Math.ceil(artByCategories[category].length / pageSize);
             
+            // Use Lodash plugin to separate category items into paged sets
             lodash.chunk(artByCategories[category], pageSize).forEach((artworks, index) => {
                 artByCategoriesPaged.push({
                     category: category,
@@ -111,30 +141,39 @@ export default function(eleventyConfig) {
         return artByCategoriesPaged;
     })
 
-    // Obtains and creates double pagination for art tags
+    // Obtains art tags from the artworks and creates double pagination for them
+    // (You can set amount of artwork per page here)
     eleventyConfig.addCollection("artByTags", function(collectionApi) {
+        // Get all artworks
         const artworks = collectionApi.getFilteredByTag("artGallery");
 
-        // Get tags
+        // Create array of art tags with their artworks
         let artByTags = new Array();
 
+        // For each of the category IDs
         artworks.forEach(artwork => {
+            // Get its tags
             const artsTags= artwork.data.artTags;
+            // For each tag
             artsTags.forEach(tag => {
+                // If tag is not in array, put it in
                 if (!artByTags[tag]) artByTags[tag] = [];
+                // Tag gets artwork
                 artByTags[tag].push(artwork);
             });
         });
 
-        // Art tags pagination
+        // Create array of paged sets of artworks per tag
         let artByTagsPaged = [];
-        const pageSize = 24;
+        const pageSize = 24; // SET NUMBER OF ARTWORK PER PAGE
         for (const tag in artByTags) {
-            // Reverse pages
+            // Reverse order of artworks per tag
             artByTags[tag].sort((a, b) => a.date > b.date).reverse();
 
+            // Calculate total number of pages needed
             const totalPages = Math.ceil(artByTags[tag].length / pageSize);
             
+            // Use Lodash plugin to separate category items into paged sets
             lodash.chunk(artByTags[tag], pageSize).forEach((artworks, index) => {
                 artByTagsPaged.push({
                     tag: tag,
@@ -150,10 +189,13 @@ export default function(eleventyConfig) {
 
     // Image HTML transform
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		formats: ["webp", "svg", "auto"],
+		formats: ["svg", "webp"],
 		widths: [768, 1280, 1920, "auto"],
-        outputDir: "_site/",
+        // The first three widths are screen resolutions, last width is the original
+        outputDir: "_site/", // Put images in "_site" folder
         urlPath: "/",
+        // Image src paths are set to exactly as they were in the source code
+        // Courtesy of being able to configure filenameFormat
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src);
             const name = path.basename(src, extension);
@@ -163,30 +205,34 @@ export default function(eleventyConfig) {
         },
 		htmlOptions: {
 			imgAttributes: {
-				loading: "lazy",
-				decoding: "async",
+				loading: "lazy", // Lazy loading is preferred for optimal performance
+				decoding: "async", // So is async decoding
                 sizes: "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, (max-width: 1920px) 100vw, 100vw"
+                // Output image size based on mobile, tablet, or desktop
 			},
-            fallback: "largest"
+            fallback: "largest" // Always go to maximum image size for screen resolution
 		},
-        svgShortCircuit: "size"
+        svgShortCircuit: "size" // So SVG file of vector graphic is only used if WEBP file would be larger
 	});
 
-    // Run Pagefind index after building site
+    // Run Pagefind index of pages in "art" folder after building site
 	eleventyConfig.on('eleventy.after', () => {
 		execSync(`npx -y pagefind --site _site --glob "art/*.{html}"`, { encoding: 'utf-8' })
 	})
 
     // Filter for processing date to "YYYY-MM-DD" format
-    // Such as in the sitemap
+    // Such as in the sitemap (with Luxon)
     eleventyConfig.addFilter("numDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-MM-dd');
+        // UTC time must be used so that date doesn't rely on local time zone
+        // and thus goes off
     });
 
     // For RSS feed
     eleventyConfig.addPlugin(pluginRss);
 
     // Transforms date for RSS feed
+    // Sets time in UTC to noon so date isn't a day off in the feed
     eleventyConfig.addFilter("RSSDate", (dateObj) => {
         const date = new Date(dateObj);
         date.setUTCHours(12, 0, 0, 0);
@@ -194,7 +240,7 @@ export default function(eleventyConfig) {
     });
 }
 
-// Set all HTML and Markdown files to use Nunjunks
+// Set HTML and Markdown files to use Nunjunks
 export const config = {
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk"

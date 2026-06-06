@@ -1,3 +1,7 @@
+/* This JavaScript file is provided for running the NPM command for bulk renaming
+image files so that their filenames look proper in the URL ("like-this"), as seen
+in the "package.json" file. Uses the Slugify plugin. */
+
 import path from 'path';
 import slugify from '@sindresorhus/slugify';
 

@@ -1,3 +1,11 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+# The robots.txt file is where you can dictate which parts of the website you want crawlers to access
+# and which you don't want them to access.
+
+# Block AI crawlers (courtesy of https://github.com/ai-robots-txt/ai.robots.txt)
 User-agent: AddSearchBot
 User-agent: AI2Bot
 User-agent: AI2Bot-DeepResearchEval
@@ -140,3 +148,7 @@ User-agent: YandexAdditionalBot
 User-agent: YouBot
 User-agent: ZanistaBot
 Disallow: /
+
+# This specifies where the sitemap is for search engine crawlers to find and use.
+# You can set siteSettings in the "siteSettings.json" file in the "_data" folder.
+Sitemap: {{ siteSettings.siteURL }}/sitemap.xml

@@ -4,11 +4,13 @@ title: Search
 permalink: /search.html
 eleventyExcludeFromCollections: true
 ---
+<!--This is the search page, where Pagefind works its magic.-->
 <h2>Gallery search</h2>
 
 <p>Powered by <a href="https://pagefind.app/">Pagefind</a></p>
 
 <div class="search-page">
+    <!--Search bar-->
     <form action="/search">
         <div class="search-page-bar-div">
             <input type="search" id="search-page-bar" name="q" size="40" placeholder="Search gallery..." />
@@ -20,10 +22,11 @@ eleventyExcludeFromCollections: true
 
     <pagefind-results>
         <script type="text/pagefind-template">
-            {# Required so that Nunjucks doesn't process the templates initially #}
+            {# This is where the look and format of result entires can be customized. #}
+            {# Raw rendering required so that Nunjucks doesn't process the templates initially #}
             {# Yeah, I had to copy and paste the gallery item component code #}
             {% raw %}
-            <a class="gallery-link" href="{{ url | safeUrl }}">
+            <a class="gallery-link" href="{{ url | safeUrl | stripExtension }}">
                 <div class="gallery-item">
                     <img class="gallery-item-art" src="{{ meta.image }}" width="500" sizes="auto" alt="{{ meta.image_alt }}" eleventy:pictureattr:class="gallery-item-art"/>
                     <p class="gallery-item-title"><b>{{ meta.title }}</b></p>

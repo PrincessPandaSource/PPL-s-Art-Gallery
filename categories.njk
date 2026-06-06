@@ -9,30 +9,42 @@ eleventyComputed:
     layout: layouts/main.html
     title: "{% if artCategory.pageNumber > 1 %}Page {{artCategory.pageNumber}} - {% endif %}Category: {{ artCategory.category }}"
 ---
+{# This file uses Eleventy's pagination feature to create each page of each category,
+relying on the collection made by ELeventy's configuration.
+
+If you want to change the amount of artworks per page, go to the category pagination code
+in the configuration. #}
 {% import "components/gallery.njk" as c %}
 
 <h2>Category: {{ artCategory.category }}</h2>
 
 <div class="gallery-grid">
   {%- for artwork in artCategory.artworks %}
+  {# Adds entry for each artwork #}
     {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date, artwork.data.altText) }}
   {% endfor -%}
 </div>
 
 {%- if artCategory.totalPages > 1 %}
+<!--If there are multiple pages, the navigation appears.
+(Handling pagination is a bit more complicated here.)-->
 <nav class="gallery-nav">
 {% endif -%}
 {%- if artCategory.pageNumber > 1 %}
 {%- if artCategory.pageNumber - 1 == 1 %}
+<!--Link to first page of category (from second page)-->
 <a href="/category/{{ artCategory.category | slugify }}/">Previous</a>
 {%- else %}
+<!--Link to previous numbered page otherwise-->
 <a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber - 1 }}">Previous</a>
 {% endif -%}
 {% endif -%}
 {%- if artCategory.pageNumber > 1 and artCategory.pageNumber < artCategory.totalPages %}
+<!--Dividing bar-->
  | 
 {% endif -%} 
 {%- if artCategory.pageNumber < artCategory.totalPages %}
+<!--Link to next page-->
   <a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber + 1 }}">Next</a>
 {% endif -%}
 {%- if artCategory.totalPages > 1 %}

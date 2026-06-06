@@ -14,6 +14,9 @@
 }
 ---
 <?xml version="1.0" encoding="utf-8"?>
+{# The RSS feed is set up with the RSS plugin and relies on the RSS feed template provided here:
+https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates
+(Yeah, you have to manually input your site's domain here.) #}
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.base | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ metadata.title }}</title>
@@ -22,12 +25,14 @@
     <description>{{ metadata.description }}</description>
     <language>{{ metadata.language or page.lang }}</language>
     {%- for artwork in collections.artGallery | reverse %}
+    {# In reverse order and no more than 10 artworks #}
     {%- if loop.index0 < 10 %}
     {%- set absolutePostUrl = artwork.url | htmlBaseUrl(metadata.base) | stripExtension %}
     <item>
       <title>{{ artwork.data.title }}</title>
       <link>{{ absolutePostUrl }}</link>
       <description>
+        {# This is how you put images in RSS feed entries #}
         <![CDATA[<img alt="{{ artwork.data.altText }}" src="{{ siteSettings.siteURL }}/img/art/{{ artwork.data.fileName }}" />]]>
         
         {{ artwork.content | renderTransforms(artwork.data.page, metadata.base) }}

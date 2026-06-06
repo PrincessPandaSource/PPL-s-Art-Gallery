@@ -6,13 +6,20 @@ eleventyComputed:
     ogImageAlt: "{{ altText }}"
     summaryLargeImage: true
 ---
+{# This is the layout for the art page, being built atop the main layout. #}
+<!--Artwork image-->
 <div class="art-page-img-div">
     <img data-pagefind-meta="image[src], image_alt[alt]" src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
 </div>
 
+<!--Title-->
 <h2 data-pagefind-meta="title">{{ title }}</h2>
+<!--Date-->
 <p data-pagefind-meta="date">{{ date | artDate }}</p>
 
+<!--Categories
+Nunjucks code finds categories that match the artwork's category IDs.
+artCategories collection formed by Eleventy configuration.-->
 <p class="p-categories"><span data-pagefind-ignore>Categories:</span>
 {%- for cateId in categories %}
     {%- set category = "test" %}
@@ -25,13 +32,18 @@ eleventyComputed:
 {%- endfor %}
 </p>
 
+<!--Tags
+artTags collection formed by Eleventy configuration.-->
 <p class="p-tags"><span data-pagefind-ignore>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
 
 <hr class="hr-line">
 
+<!--Description-->
 {{ content | safe }}
 
+<!--Image modal-->
 <div data-pagefind-ignore id="img-modal" class="modal">
+    <!--Close button-->
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
     <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
 </div>

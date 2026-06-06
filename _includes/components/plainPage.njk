@@ -1,3 +1,7 @@
+{# Reusable components intended for the basic HTML sections #}
+
+{# Plain images #}
+{# If direction of placement is specified, the CSS class is applied #}
 {% macro plainImg(src, altText, width, direction) %}
 <img src="{{ src }}" {% if direction %}class="{% if direction == "left" %}left-plain-img{% elif direction == "right" %}right-plain-img{% endif %}"{% endif %} width="{{ width * 2 }}" sizes="auto" style="max-width:{{ width }}px; height:auto" alt="{{ altText }}">
 {% endmacro %}

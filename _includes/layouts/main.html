@@ -3,18 +3,21 @@ description: "An art gallery website template made with Eleventy"
 ogImage: "icon-og.png"
 ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's silhouette"
 ---
+{# This is the main layout, meant to be reused across all pages. #}
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!--You can set siteSettings in the "siteSettings.json" file in the "_data" folder-->
         {% if title -%}
         <title>{{ title }} - {{ siteSettings.siteName }}</title>
         {% else %}
         <title>{{ siteSettings.siteName }}</title>
         {% endif %}
 
+        <!--Blocks some AI crawlers-->
         <meta name="robots" content="noarchive">
 
         {% if page.url != "/404.html" -%}
@@ -24,6 +27,7 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <meta name="generator" content="{{ eleventy.generator }}">
 
         {% if page.url == "/search.html" -%}
+        <!--Load Pagefind files (and a custom script)-->
         <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
 
         <link rel="modulepreload" href="/pagefind/pagefind-component-ui.js" />
@@ -37,6 +41,7 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     
         {%- if page.url != "/404.html" %}
+        <!--Canonical URL for search engines-->
         <link rel="canonical" href="{{ siteSettings.siteURL }}{{ page.url | stripExtension }}"/>
 
         <!--Open Graph-->
@@ -69,25 +74,32 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
     <body>
         <div class="wrapper">
             <header>
+                <!--Header logo and title-->
                 <a class="header-title-link" href="/">
                     <div class="header-title">
                         <img class="logo" src="/img/icon.svg" width="250" sizes="auto" loading="eager" fetchpriority="high" alt="Simple icon of framed picture showing heart and Mythical the wolf's silhouette">
+                        <!--Logo has eager loading and high fetch priority to ensure that browser prioritizes
+                        this image foremost for better performance.-->
                         <h1 class="header-title-text">PPL's Art Gallery</h1>
                     </div>
                 </a>
 
-                <ul class="piped-list">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/feed.xml">RSS feed</a></li>
-                    <li>
-                        <form id="search-bar-form" action="/search">
-                            <div class="search-bar-div">
-                                <input type="search" id="search-bar" name="q" size="20" placeholder="Search gallery..." />
-                                <button type="submit">Search</button>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
+                <!--Navigation bar-->
+                <nav>
+                    <ul class="piped-list">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/feed.xml">RSS feed</a></li>
+                        <li>
+                            <!--Search bar-->
+                            <form id="search-bar-form" action="/search">
+                                <div class="search-bar-div">
+                                    <input type="search" id="search-bar" name="q" size="20" placeholder="Search gallery..." />
+                                    <button type="submit">Search</button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
             </header>
 
             <main data-pagefind-body>

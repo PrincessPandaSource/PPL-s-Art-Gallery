@@ -1,9 +1,21 @@
+/* This is the CSS file responsible for how the website looks, from the colors and fonts to the
+positioning of HTML elements. To figure how to change something, you can search online wth a
+query such as "css change background color". */
+
+/* The @font-face rule specifies a custom font, pointing to the source path of its font file.
+Use it to add custom fonts. 
+
+A good site for getting free WOFF2 fonts from Google Fonts is: https://gwfh.mranftl.com/fonts */
 @font-face {
     font-family: "The Girl Next Door";
-    src: url("/fonts/the-girl-next-door.woff2");
-    font-display: swap;
+    src: url("/fonts/the-girl-next-door.woff2") format(woff2);
+    font-style: none;
+    font-weight: 400;
+    font-display: swap; /* for performance */
 }
 
+/* This establishes variables for CSS properties, so that they can be
+reused without manual copy and pasting. */
 :root {
     --title-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --body-font: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,10 +28,13 @@
     --box-link-border-color: #c26e27;
     --box-link-text-color: #4d1800;
 
-    --gallery-grid-columns: repeat(auto-fill, 280px);
+    --gallery-item-height: 250px;
+    --gallery-item-width: 250px;
     --gallery-grid-gap: 30px;
+    --gallery-item-total-width: calc(var(--gallery-item-width) + var(--gallery-grid-gap));
+    --gallery-grid-columns: repeat(auto-fill, var(--gallery-item-total-width));
 
-    /* Pagefind CSS */
+    /* Variables used by Pagefind */
     --pf-font: var(--body-font);
     --pf-results-display: grid;
     --pf-results-columns: var(--gallery-grid-columns);
@@ -27,6 +42,7 @@
     --pf-text-muted: var(--text-color);
 }
 
+/* BODY (the whole page) */
 body {
     font-family: var(--body-font);
     font-size: var(--font-size);
@@ -40,10 +56,12 @@ body {
     flex-direction: column;
 }
 
+/* So scrollbar is hidden when the image modal is open */
 body.modal-open {
     overflow: hidden;
 }
 
+/* WRAPPER (where the contents besides the background are) */
 .wrapper {
     background-color: var(--wrapper-bg-color);
     width: 70%;
@@ -57,6 +75,8 @@ body.modal-open {
     flex-direction: column;
 }
 
+/* Maintains that the <b> and <i> tags still make text bold and italic
+respectively */
 b {
     font-weight: bold;
 }
@@ -65,15 +85,19 @@ i {
     font-style: italic;
 }
 
+/* Global link color */
 a {
     color: #5e0080;
 }
 
+/* HEADER */
 header {
     text-align: center;
     margin-bottom: 1.5em;
 }
 
+/* For links encompassing div elements so that their whole areas
+can be clicked on */
 .header-title-link, .gallery-link {
     display: block;
     height: fit-content;
@@ -86,6 +110,7 @@ header {
     margin-bottom: 1.5em;
 }
 
+/* The header area containing the logo and title */
 .header-title {
     display: flex;
     justify-content: center;
@@ -98,16 +123,43 @@ header {
     height: auto;
 }
 
+/* The text title */
 .header-title-text {
     font-family: 'The Girl Next Door';
     font-size: var(--title-font-size);
     color: #9E005C;
 }
 
+/* PIPED LIST (horizontal lists with bars between items) */
+.piped-list {
+    padding: 0 0 0.5em 0;
+    list-style-type: none;
+    line-height: calc(var(--font-size) + 14px);
+}
+
+.piped-list li {
+    display: inline;
+    padding: 0 0.5em;
+}
+
+.piped-list li:first-child {
+    padding-left: 0;
+    padding-right: 0.5em;
+}
+
+.piped-list li:not(:first-child) {
+    border-left: 1px solid var(--text-color);
+}
+
+/* SEARCH BAR */
+/* So <form> element for search bar can be put
+in the navigation bar */
 #search-bar-form, #search-bar-form * {
     display: inline;
 }
 
+/* input refers to text box
+button refers to button, of course */
 input[type=search],
 button[type=submit] {
     font-family: var(--body-font);
@@ -132,14 +184,17 @@ button[type=submit] {
     color: #3b2509;
 }
 
+/* MAIN (the main content of the page) */
 main {
-    flex: 1;
+    flex: 1; /* So footer can stay at bottom */
 }
 
+/* Heading text besides the one in the page header */
 h2, h3 {
     font-family: var(--title-font)
 }
 
+/* For <img> elements not used for anything fancy */
 .left-plain-img {
     float: left;
     margin-right: 20px;
@@ -150,11 +205,12 @@ h2, h3 {
     margin-left: 20px;
 }
 
+/* GALLERY */
 .gallery-grid, .pf-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
-    grid-auto-rows: 280px;
-    gap: 30px;
+    grid-template-columns: var(--gallery-grid-columns);
+    grid-auto-rows: var(--gallery-item-total-width);
+    gap: var(--gallery-grid-gap);
     justify-content: center !important;
 }
 
@@ -164,8 +220,8 @@ h2, h3 {
 }
 
 .gallery-item {
-    height: 250px;
-    width: 250px;
+    height: var(--gallery-item-height);
+    width: var(--gallery-item-width);
     border: 3px solid var(--box-link-border-color);
     background-color: var(--box-link-color);
     padding: 15px;
@@ -194,6 +250,7 @@ picture.gallery-item-art {
 .gallery-item-title {
     font-family: var(--title-font);
     font-size: calc(var(--font-size) + 1px);
+    /* So number of lines in title is kept to 2 */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -207,31 +264,22 @@ picture.gallery-item-art {
     text-align: center;
 }
 
-.piped-list {
-    padding: 0 0 0.5em 0;
-    list-style-type: none;
-    line-height: calc(var(--font-size) + 14px);
-}
-
+/* CATEGORIES LIST (rest of properties in PIPED LIST section;
+this is so that you can scroll it horizontally) */
 #category-list {
     overflow-x: auto;
     white-space: nowrap;
 }
 
-.piped-list li {
-    display: inline;
-    padding: 0 0.5em;
+/* HORIZONTAL LINE (so it's always presented as a line,
+and plus with the custom color) */
+hr.hr-line {
+    border: none;
+    border-top: 1px solid var(--text-color);
 }
 
-.piped-list li:first-child {
-    padding-left: 0;
-    padding-right: 0.5em;
-}
-
-.piped-list li:not(:first-child) {
-    border-left: 1px solid var(--text-color);
-}
-
+/* ARTWORK PAGE */
+/* Categories and tags sections */
 .p-categories, .p-tags {
     display: flex;
     flex-wrap: wrap;
@@ -239,6 +287,7 @@ picture.gallery-item-art {
     align-items: center;
 }
 
+/* Contrary to class name, this applies to categories too */
 .art-tag {
     display: inline-block;
     border: 2px solid var(--box-link-border-color);
@@ -252,12 +301,14 @@ picture.gallery-item-art {
     margin-right: 3px;
 }
 
+/* The art image itself */
 .art-page-img-div {
     height: 450px;
     width: fit-content;
     margin: auto;
 }
 
+/* <picture> element is specified due to how image optimization works */
 .art-page-img-div picture {
     height: 100%;
     width: 100%;
@@ -270,11 +321,7 @@ picture.gallery-item-art {
     cursor: pointer;
 }
 
-hr.hr-line {
-    border: none;
-    border-top: 1px solid var(--text-color);
-}
-
+/* Modal for zooming in on the art image */
 .modal {
     display: none;
     position: fixed;
@@ -290,6 +337,7 @@ hr.hr-line {
     overscroll-behavior: contain;
 }
 
+/* When modal has "show" CSS class attached and thus can show */
 .modal.show {
     display: flex;
     opacity: 1;
@@ -320,6 +368,7 @@ hr.hr-line {
     cursor: pointer;
 }
 
+/* SEARCH PAGE */
 .search-page {
     display: flex;
     flex-direction: column;
@@ -330,17 +379,19 @@ pagefind-results {
     font-size: var(--font-size);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     margin-top: 25px;
 }
 
-/* Mobile */
+/* RESPONSIVENESS ON MOBILE SCREENS */
 @media only screen and (max-width: 767px) {
     .wrapper {
         width: 100%;
     }
 
+    /* Header logo and title are shrunk to make them fit more */
     .header-title {
         gap: 13px;
     }
@@ -354,7 +405,7 @@ footer {
     }
 }
 
-/* Tablet */
+/* RESPONSIVENESS ON TABLET SCREENS */
 @media only screen and (min-width: 768px) and (max-width: 1365px) {
     .header-title {
         gap: 40px;

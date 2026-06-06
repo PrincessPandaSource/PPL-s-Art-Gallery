@@ -1,3 +1,6 @@
+/* This script is what gives functionality to the image modal, so you can
+open and close it. */
+
 let body = document.querySelector("body");
 let modal = document.getElementById("img-modal");
 

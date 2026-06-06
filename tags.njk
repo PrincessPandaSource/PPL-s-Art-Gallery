@@ -9,30 +9,42 @@ eleventyComputed:
     layout: layouts/main.html
     title: "{% if artTag.pageNumber > 1 %}Page {{artTag.pageNumber}} - {% endif %}Tagged: {{ artTag.tag }}"
 ---
+{# This file uses Eleventy's pagination feature to create each page of each art
+tag, relying on the collection made by Eleventy's configuration.
+
+If you want to change the amount of artworks per page, go to the art tag pagination
+code in the configuration. #}
 {% import "components/gallery.njk" as c %}
 
 <h2>Tagged: {{ artTag.tag }}</h2>
 
 <div class="gallery-grid">
   {%- for artwork in artTag.artworks %}
+  {# Adds entry for each artwork #}
     {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date, artwork.data.altText) }}
   {% endfor -%}
 </div>
 
 {%- if artTag.totalPages > 1 %}
 <nav class="gallery-nav">
+<!--If there are multiple pages, the navigation appears.
+(Handling pagination is a bit more complicated here.)-->
 {% endif -%}
 {%- if artTag.pageNumber > 1 %}
 {%- if artTag.pageNumber - 1 == 1 %}
+<!--Link to first page of art tag (from second page)-->
 <a href="/tag/{{ artTag.tag | slugify }}/">Previous</a>
 {%- else %}
+<!--Link to previous numbered page otherwise-->
 <a href="/tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber - 1 }}">Previous</a>
 {% endif -%}
 {% endif -%}
 {%- if artTag.pageNumber > 1 and artTag.pageNumber < artTag.totalPages %}
+<!--Dividing bar-->
  | 
 {% endif -%} 
 {%- if artTag.pageNumber < artTag.totalPages %}
+<!--Link to next page-->
   <a href="/tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber + 1 }}">Next</a>
 {% endif -%}
 {%- if artTag.totalPages > 1 %}

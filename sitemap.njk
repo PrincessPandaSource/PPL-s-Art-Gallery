@@ -3,6 +3,9 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+{# The sitemap is set up by going through all pages, except ones that are
+manually excluded via eleventyExcludeFromCollections and ones that don't
+have rendered pages (false permalink), and entering their URLs and dates. #}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for page in collections.all %}
 {% if page.data.permalink != false %}

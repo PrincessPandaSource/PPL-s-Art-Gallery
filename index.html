@@ -9,37 +9,50 @@ permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{%
 eleventyComputed:
   title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }}{% endif %}"
 ---
+{# This is the main gallery, everyone! Plus, it's divided into pages to browse
+at your own convenience.
+
+24 is the default amount of artwork per page. If you'd like to change this, change
+the size property in the front matter. #}
 {%- import "components/gallery.njk" as c %}
 
 {% if pagination.pageNumber == 0 %}
-<div>
+<!-- If it is the front page (index starts at 0), a section is displayed in which you can browse categories.-->
+<nav>
   <b>View by category:</b>
   <ul id="category-list" class="piped-list">
   {% for category in artCategories %}
+  {# From the artCategories collection formed by Eleventy configuration #}
     <li><a href="/category/{{ category.name | slugify }}/">{{ category.name }}</a></li>
   {% endfor %}
   </ul>
 
   <hr class="hr-line">
-</div>
+</nav>
 {% endif %}
 
+<!--Gallery content-->
 <div class="gallery-grid">
   {% for artwork in pagination.items %}
+  {# Adds entry for each artwork #}
     {{ c.galleryItem(artwork.data.fileName, artwork.data.title, artwork.date, artwork.data.altText) }}
   {% endfor %}
 </div>
 
 {%- if pagination.href.previous or pagination.href.next %}
+<!--If there are multiple pages, the navigation appears.-->
 <nav class="gallery-nav">
 {% endif -%}
 {%- if pagination.href.previous %}
+<!--Link to previous page-->
 <a href="{{ pagination.href.previous }}">Previous</a>
 {% endif -%}
 {%- if pagination.href.previous and pagination.href.next %}
+<!--Dividing bar-->
  | 
 {% endif -%} 
 {%- if pagination.href.next %}
+<!--Link to next page-->
   <a href="{{ pagination.href.next }}">Next</a>
 {% endif -%}
 {%- if pagination.href.previous or pagination.href.next %}

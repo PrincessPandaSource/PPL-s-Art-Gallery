@@ -1,3 +1,6 @@
+/* This script utilizes Pagefind functionality to allow for saving
+the searches in the URL. */
+
 // Pagefind manager
 const manager = window.PagefindComponents.getInstanceManager();
 const instance = manager.getInstance('default');

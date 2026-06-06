@@ -1,3 +1,6 @@
+{# Reusable components intended for the gallery feature #}
+
+{# An entry in the gallery #}
 {% macro galleryItem(fileName, title, date, altText) %}
 <a class="gallery-link" href="/art/{{ title | slugify }}">
     <div class="gallery-item">
