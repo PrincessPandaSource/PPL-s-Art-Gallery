@@ -100,12 +100,12 @@ header {
 can be clicked on */
 .header-title-link, .gallery-link {
     display: block;
+    width: fit-content;
     height: fit-content;
     text-decoration: none;
 }
 
 .header-title-link {
-    width: 100%;
     margin: auto;
     margin-bottom: 1.5em;
 }
