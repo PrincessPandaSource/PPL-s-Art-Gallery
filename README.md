@@ -1,7 +1,12 @@
 # PPL's Art Gallery
 Do you want a place for showcasing your art? Do you want to fully customize the place? Do you want complete control of the place? Can't code? PPL's Art Gallery is for you!
 
-PPL's Art Gallery is a website template for showcasing your artwork, based on 2000s-era art sharing sites such as DeviantArt. It is designed to be used easily by non-coders, being built with [Eleventy](https://www.11ty.dev/), the simpler static site generator.
+PPL's Art Gallery is a website template for showcasing your artwork, based on 2000s-era art sharing sites such as DeviantArt. It is designed to be used easily by non-coders, being built with [Eleventy](https://www.11ty.dev/), the simpler static site generator. You don't need to edit fancy schmancy code, just some HTML/Markdown and CSS files and a little bit of JavaScript!
+
+<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/b74fc612-567a-44b6-b885-8c6af4bc7e72" />
+<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/dcdb9659-c2e2-4050-8dda-89abcc32245f" />
+<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/bc7bab66-f335-421c-ae51-a1db960448e0" />
+<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/8da4a707-a15c-4f18-ab80-7a2bd8c51fc7" />
 
 * Load image files for your artwork, make their filenames URL-friendly with a custom command, and whip up their entries with titles, dates, alt text, and descriptions (Markdown is supported!).
 * Sort your artwork into custom categories and with tags.
@@ -98,7 +103,9 @@ Layout files, located in the `_includes/layouts` folder, provide layouts for pag
 
 The look of the page, such as colors, fonts, and sizes and positions of HTML elements, is defined by the CSS file `main.css` in the `styles` folder. To figure how to change something, you can search online with something such as "css change background color".
 
-Custom fonts are stored in the ``fonts`` folder. A good site for getting WOFF2 fonts, as such fonts are optimized for the web, from Google Fonts is [google webfonts helper](https://gwfh.mranftl.com/fonts).
+Custom fonts are stored in the `fonts` folder. A good site for getting WOFF2 fonts, as such fonts are optimized for the web, from Google Fonts is [google webfonts helper](https://gwfh.mranftl.com/fonts).
+
+To change how many gallery entries are on each page, for the main gallery, you can alter the pagination size in the `index.html` file's front matter data, and for categories and tags, you can alter the `pageSize` variable in either the `eleventyConfig.addCollection("artByCategories", function(collectionApi)` or `eleventyConfig.addCollection("artByTags", function(collectionApi)` functions in the `eleventy.config.js` file.
 
 ### Adding regular pages
 First, create an HTML or Markdown file. Then, add and fill the following front matter data at the top. You are free to model after `about.html` as an example.
@@ -115,14 +122,14 @@ summaryLargeImage: true
 ---
 ```
 
-(``ogImage`` and ``ogImageAlt`` are optional, as they are already set in the ``layouts/main.html`` layout. It is recommended to set them to the first image in the page if there is one. ``summaryLargeImage`` should only be set if you want the social media card to display the image as large. While set in the layout file already, a specific ``description`` is recommended. Read ["Site configuration"](#site-configuration) to learn more about social media card settings.)
+(`ogImage` and `ogImageAlt` are optional, as they are already set in the `layouts/main.html` layout. It is recommended to set them to the first image in the page if there is one. `summaryLargeImage` should only be set if you want the social media card to display the image as large. While set in the layout file already, a specific `description` is recommended. Read ["Site configuration"](#site-configuration) to learn more about social media card settings.)
 
 After that, you can fill in whatever HTML content you want on the page. Refer to ["Adding artwork"](#adding-artwork) for how to add images properly.
 
 ### Site configuration
 The site's title and URL are set in the `siteSettings.json` file in the `_data` folder. (You must set them manually in `feed.njk`, the RSS feed file.)
 
-Social media cards rely on the [Open Graph](https://ogp.me/) and [Twitter Card](https://web.archive.org/web/20230726041100/https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) protocols, in which such metadata must be provided in the webpage code for the cards to render correctly. The default metadata is provided in the `_includes/layouts/main.html` file, where you can change the `author` and `twitter:site` metadata. The `description`, `ogImage`, and `ogImageAlt` fields in the front matter data can be set to change their respective metadata.
+Social media cards rely on the [Open Graph](https://ogp.me/) and [Twitter Card](https://web.archive.org/web/20230726041100/https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) protocols, in which such metadata must be provided in the webpage code for the cards to render correctly. The default metadata is provided in the `_includes/layouts/main.html` file, where you can change the `author` and `twitter:site` metadata. The `description`, `ogImage`, and `ogImageAlt` fields can be set in the front matter data to change their respective metadata.
 
 You are welcome to tweak and modify the website beyond the scope of what's covered here, but it is recommended that you have knowledge of Eleventy, JavaScript, and Nunjucks (the templating language used). You can get started with the [Eleventy docs](https://www.11ty.dev/docs/).
 
