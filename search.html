@@ -24,13 +24,28 @@ eleventyExcludeFromCollections: true
         <script type="text/pagefind-template">
             {# This is where the look and format of result entires can be customized. #}
             {# Raw rendering required so that Nunjucks doesn't process the templates initially #}
+            {# (The language used is NOT Nunjucks) #}
             {# Yeah, I had to copy and paste the gallery item component code #}
+            {# (I cannot find a way to provide a custom filter for this implementation of adequate-little-templates.) #}
             {% raw %}
             <a class="gallery-link" href="{{ url | safeUrl }}">
                 <div class="gallery-item">
                     <img class="gallery-item-art" src="{{ meta.image }}" width="500" sizes="auto" alt="{{ meta.image_alt }}" eleventy:pictureattr:class="gallery-item-art"/>
                     <p class="gallery-item-title"><b>{{ meta.title }}</b></p>
                     <p>{{ meta.date }}</p>
+                </div>
+            </a>
+            {% endraw %}
+        </script>
+
+        <script type="text/pagefind-template" data-template="placeholder">
+            {# This is where the placeholder results, while they are loading, are customized. #}
+            {% raw %}
+            <a class="gallery-link" href="{{ url | safeUrl }}" aria-hidden="true">
+                <div class="gallery-item">
+                    <div class="gallery-item-art-placeholder"></div>
+                    <p class="gallery-item-title"><b>Loading...</b></p>
+                    <p>...</p>
                 </div>
             </a>
             {% endraw %}
