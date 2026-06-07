@@ -26,7 +26,7 @@ eleventyExcludeFromCollections: true
             {# Raw rendering required so that Nunjucks doesn't process the templates initially #}
             {# Yeah, I had to copy and paste the gallery item component code #}
             {% raw %}
-            <a class="gallery-link" href="{{ url | safeUrl | stripExtension }}">
+            <a class="gallery-link" href="{{ url | safeUrl }}">
                 <div class="gallery-item">
                     <img class="gallery-item-art" src="{{ meta.image }}" width="500" sizes="auto" alt="{{ meta.image_alt }}" eleventy:pictureattr:class="gallery-item-art"/>
                     <p class="gallery-item-title"><b>{{ meta.title }}</b></p>
