@@ -3,10 +3,10 @@ Do you want a place for showcasing your art? Do you want to fully customize the 
 
 PPL's Art Gallery is a website template for showcasing your artwork, based on 2000s-era art sharing sites such as DeviantArt. It is designed to be used easily by non-coders, being built with [Eleventy](https://www.11ty.dev/), the simpler static site generator. You don't need to edit fancy schmancy code, just some HTML/Markdown and CSS files and a little bit of JavaScript!
 
-<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/b74fc612-567a-44b6-b885-8c6af4bc7e72" />
-<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/dcdb9659-c2e2-4050-8dda-89abcc32245f" />
-<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/bc7bab66-f335-421c-ae51-a1db960448e0" />
-<img width="495" height="235" alt="image" src="https://github.com/user-attachments/assets/8da4a707-a15c-4f18-ab80-7a2bd8c51fc7" />
+<img width="396" height="188" alt="image" src="https://github.com/user-attachments/assets/b74fc612-567a-44b6-b885-8c6af4bc7e72" />
+<img width="396" height="188" alt="image" src="https://github.com/user-attachments/assets/dcdb9659-c2e2-4050-8dda-89abcc32245f" />
+<img width="396" height="188" alt="image" src="https://github.com/user-attachments/assets/bc7bab66-f335-421c-ae51-a1db960448e0" />
+<img width="396" height="188" alt="image" src="https://github.com/user-attachments/assets/8da4a707-a15c-4f18-ab80-7a2bd8c51fc7" />
 
 * Load image files for your artwork, make their filenames URL-friendly with a custom command, and whip up their entries with titles, dates, alt text, and descriptions (Markdown is supported!).
 * Sort your artwork into custom categories and with tags.
