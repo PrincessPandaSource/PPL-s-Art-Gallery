@@ -1,10 +1,10 @@
 /* This is file is used to configure Eleventy with JavaScript, such as adding
 Nunjucks filters, creating and fine-tuning page collections, and running
-terminal commands. This is where you specify artwork categories.
+terminal commands. This is where you specify artwork categories and how many
+gallery entries should be on each category or tag page.
 
 Other modifications are only recommended if you have some prior experience
-with Eleventy and JavaScript. You can get started with Eleventy by reading
-the docs: https://www.11ty.dev/docs/ */
+with Eleventy and JavaScript. */
 
 import lodash from "lodash";
 import path from "node:path";
@@ -17,21 +17,9 @@ export default function(eleventyConfig) {
     // Copies the following directories and files to the build,
     // for that they are not transferred by default
 
-    // This copies all original images to the build,
-    // so that users can still find them
+    // This copies all original images to the build
+    // This is REQUIRED for images in social media cards to work
     eleventyConfig.addPassthroughCopy("img");
-
-    // If you want to exclude artwork images,
-    // use this option
-    /*eleventyConfig.addPassthroughCopy("img", {
-        debug: true,
-        filter: ["*", "!art"]
-    });*/
-
-    // You can manually specify certain images to be
-    // copied instead, also
-    //eleventyConfig.addPassthroughCopy("img/*.ico"); // All ICO images
-    //eleventyConfig.addPassthroughCopy("img/icon-og.png");
 
     eleventyConfig.addPassthroughCopy("styles");
     eleventyConfig.addPassthroughCopy("fonts");

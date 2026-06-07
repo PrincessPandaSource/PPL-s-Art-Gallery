@@ -1,11 +1,8 @@
 /* This is the CSS file responsible for how the website looks, from the colors and fonts to the
-positioning of HTML elements. To figure how to change something, you can search online wth a
-query such as "css change background color". */
+positioning of HTML elements. */
 
 /* The @font-face rule specifies a custom font, pointing to the source path of its font file.
-Use it to add custom fonts. 
-
-A good site for getting free WOFF2 fonts from Google Fonts is: https://gwfh.mranftl.com/fonts */
+Use it to add custom fonts. */
 @font-face {
     font-family: "The Girl Next Door";
     src: url("/fonts/the-girl-next-door.woff2") format(woff2);

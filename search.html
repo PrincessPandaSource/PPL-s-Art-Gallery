@@ -26,7 +26,8 @@ eleventyExcludeFromCollections: true
             {# Raw rendering required so that Nunjucks doesn't process the templates initially #}
             {# (The language used is NOT Nunjucks) #}
             {# Yeah, I had to copy and paste the gallery item component code #}
-            {# (I cannot find a way to provide a custom filter for this implementation of adequate-little-templates.) #}
+            {# (I cannot find a way to provide a custom filter for this implementation of adequate-little-templates,
+            so you'll have to deal with the file extensions in the URL.) #}
             {% raw %}
             <a class="gallery-link" href="{{ url | safeUrl }}">
                 <div class="gallery-item">

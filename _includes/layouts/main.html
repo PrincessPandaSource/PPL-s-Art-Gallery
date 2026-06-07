@@ -20,9 +20,7 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <!--Blocks some AI crawlers-->
         <meta name="robots" content="noarchive">
 
-        {% if page.url != "/404.html" -%}
         <meta name="description" content="{{ description }}">
-        {% endif %}
         <meta name="author" content="PrincessPandaLover">
         <meta name="generator" content="{{ eleventy.generator }}">
 
@@ -43,6 +41,7 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         {%- if page.url != "/404.html" %}
         <!--Canonical URL for search engines-->
         <link rel="canonical" href="{{ siteSettings.siteURL }}{{ page.url | stripExtension }}"/>
+        {%- endif %}
 
         <!--Open Graph-->
         {%- if title %}
@@ -68,7 +67,6 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <meta name="twitter:description" content="{{ description }}">
         <meta name="twitter:image" content="{{ siteSettings.siteURL }}/img/{{ ogImage }}">
         <meta property="twitter:image:alt" content="{{ ogImageAlt }}" />
-        {%- endif %}
     </head>
 
     <body>
