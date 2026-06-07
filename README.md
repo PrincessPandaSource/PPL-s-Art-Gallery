@@ -37,7 +37,7 @@ Artwork pages are generated from files in the `art` folder, and they use images 
 
 (You are free to delete all the pre-existing art pages and images!)
 
-To add an artwork, first add an image to the `img/art` folder. (You may want it to named in a way that looks proper in URL, "like-this". To batch rename all images in the `img` folder, run `npm run slugifyImageNames`.)
+To add an artwork, first add an image to the `img/art` folder. (You may want it to named in a way that looks proper in URL, "like-this". To batch rename all images in the `img` folder, run `npm run slugify-image-names`.)
 
 Then, create either an HTML or Markdown file in the `art` folder. It can be named anything. At the top, paste and fill in the following Eleventy front matter data:
 

@@ -6,7 +6,7 @@
     "start": "eleventy --serve",
     "build": "eleventy",
     "clean": "rmdir /s /q _site",
-    "slugifyImageNames": "renamer --chain slugify_filename.js img/**",
+    "slugify-image-names": "renamer --chain slugify_filename.js img/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
