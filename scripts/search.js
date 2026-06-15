@@ -1,5 +1,5 @@
 /* This script utilizes Pagefind functionality to allow for saving
-the searches in the URL. */
+the searches in the URL.
 
 // Pagefind manager
 const manager = window.PagefindComponents.getInstanceManager();
@@ -16,4 +16,4 @@ if (urlParams.has('q')) {
     let query = urlParams.get('q');
     searchPageBar.value = query;
     instance.triggerSearch(query);
-}
+} */

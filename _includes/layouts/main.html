@@ -25,12 +25,7 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <meta name="generator" content="{{ eleventy.generator }}">
 
         {% if page.url == "/search.html" -%}
-        <!--Load Pagefind files (and a custom script)-->
-        <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
-
-        <link rel="modulepreload" href="/pagefind/pagefind-component-ui.js" />
-        <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
-
+        <!--Load search script file-->
         <link rel="modulepreload" href="/scripts/search.js" />
         <script src="/scripts/search.js" type="module"></script>
         {%- endif %}
