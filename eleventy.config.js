@@ -12,6 +12,7 @@ import { DateTime } from "luxon";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import { execSync } from 'child_process';
+import { match } from "node:assert";
 
 export default function(eleventyConfig) {
     // Copies the following directories and files to the build,
@@ -25,13 +26,18 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("scripts");
 
-    // Filter for processing date into full format with full month name
+    // Processes date into full format with full month name
     // and all (with Luxon)
-    eleventyConfig.addFilter("artDate", (dateString) => {
+    function artDate(dateString) {
         const dateObj = new Date(dateString);
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toLocaleString(DateTime.DATE_FULL);
         // UTC time must be used so that date doesn't rely on local time zone
         // and thus goes off
+    };
+
+    // Filter for above
+    eleventyConfig.addFilter("artDate", (dateString) => {
+        return artDate(dateString);
     });
 
     // Filter for stripping file extension, relying on Regex
@@ -71,6 +77,15 @@ export default function(eleventyConfig) {
     // Allows other files to access the artCategories array
     eleventyConfig.addGlobalData("artCategories", artCategories);
 
+    // Match ID with category
+    function matchCategoryID(id) {
+        for (const i in artCategories) {
+            if (artCategories[i].id == id) {
+                return artCategories[i].name;
+            }
+        }
+    }
+
     // Creates double pagination for the art categories set above
     // (You can set amount of artwork per page here)
     // Code source: https://www.codeflood.net/blog/2024/04/17/11ty-nested-pagination/
@@ -87,15 +102,7 @@ export default function(eleventyConfig) {
             const artsCate = artwork.data.categories;
             // For each of the category IDs
             artsCate.forEach(cateId => {
-                let category = "test";
-
-                // Match ID with category
-                for (const i in artCategories) {
-                    if (artCategories[i].id == cateId) {
-                        category = artCategories[i].name;
-                        break;
-                    }
-                }
+                const category = matchCategoryID(cateId);
 
                 // If category is not in array, put it in
                 if (!artByCategories[category]) artByCategories[category] = [];
@@ -203,10 +210,56 @@ export default function(eleventyConfig) {
         svgShortCircuit: "size" // So SVG file of vector graphic is only used if WEBP file would be larger
 	});
 
-    // Run Pagefind index of pages in "art" folder after building site
-	eleventyConfig.on('eleventy.after', () => {
-		execSync(`npx -y pagefind --site _site --glob "art/*.{html}"`, { encoding: 'utf-8' })
-	})
+    // Filter for building search index; takes collection and 
+    // Credit: https://arielsalminen.com/2025/building-search-index-with-eleventy/
+	eleventyConfig.addFilter("searchIndex", function(collection) {
+		const searchIndex = collection
+			.map(({ templateContent, url, data }) => {
+				const { title = "", fileName = "", altText = "" } = data;
+
+                const date = artDate(data.date);
+
+                let categories = "";
+                data.categories.forEach(category => {
+                    categories = categories.concat(matchCategoryID(category), " ");
+                })
+                categories = categories.trim();
+
+                const artTags = data.artTags.join(' ');
+
+				const content = searchPlainify(templateContent);
+
+				return {
+					url,
+					title,
+                    date,
+					fileName,
+                    categories,
+					artTags,
+                    altText,
+					content
+				};
+			});
+
+		return { searchIndex };
+	});
+
+    // Processes content to be plain text for search index
+	function searchPlainify(text) {
+		if (!text) return "";
+
+		// Remove HTML elements
+		const plain = text.replace(/<.*?>/gis, "");
+
+		// Remove other unnecessary characters from the text
+		return plain
+            .replace(/"|/g, "") // remove quotes
+			.replace(/\n|\r/g, " ") // remove newlines
+			.replace(/&(\S*)/g, "") // remove HTML entities
+			.replace(/[ ]{2,}/g, " ") // remove repeated spaces
+			.replace(/[\\|]/g, "") // remove special characters
+            .trim()
+	}
 
     // Filter for processing date to "YYYY-MM-DD" format
     // Such as in the sitemap (with Luxon)

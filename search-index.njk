@@ -1,0 +1,7 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+eleventyImport:
+    collections: ['artGallery']
+---
+{{ collections.artGallery | reverse | searchIndex | dump | safe }}
