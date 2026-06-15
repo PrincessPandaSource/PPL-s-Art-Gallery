@@ -9,18 +9,18 @@ eleventyComputed:
 {# This is the layout for the art page, being built atop the main layout. #}
 <!--Artwork image-->
 <div class="art-page-img-div">
-    <img data-pagefind-meta="image[src], image_alt[alt]" src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
+    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
 </div>
 
 <!--Title-->
-<h2 data-pagefind-meta="title">{{ title }}</h2>
+<h2>{{ title }}</h2>
 <!--Date-->
-<p data-pagefind-meta="date">{{ date | artDate }}</p>
+<p>{{ date | artDate }}</p>
 
 <!--Categories
 Nunjucks code finds categories that match the artwork's category IDs.
 artCategories collection formed by Eleventy configuration.-->
-<p class="p-categories"><span data-pagefind-ignore>Categories:</span>
+<p class="p-categories"><span>Categories:</span>
 {%- for cateId in categories %}
     {%- set category = "test" %}
     {%- for object in artCategories %}
@@ -34,7 +34,7 @@ artCategories collection formed by Eleventy configuration.-->
 
 <!--Tags
 artTags collection formed by Eleventy configuration.-->
-<p class="p-tags"><span data-pagefind-ignore>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
+<p class="p-tags"><span>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
 
 <hr class="hr-line">
 
@@ -42,7 +42,7 @@ artTags collection formed by Eleventy configuration.-->
 {{ content | safe }}
 
 <!--Image modal-->
-<div data-pagefind-ignore id="img-modal" class="modal">
+<div id="img-modal" class="modal">
     <!--Close button-->
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
     <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
