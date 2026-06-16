@@ -30,13 +30,6 @@ reused without manual copy and pasting. */
     --gallery-grid-gap: 30px;
     --gallery-item-total-width: calc(var(--gallery-item-width) + var(--gallery-grid-gap));
     --gallery-grid-columns: repeat(auto-fill, var(--gallery-item-total-width));
-
-    /* Variables used by Pagefind */
-    --pf-font: var(--body-font);
-    --pf-results-display: grid;
-    --pf-results-columns: var(--gallery-grid-columns);
-    --pf-results-gap: var(--gallery-grid-gap);
-    --pf-text-muted: var(--text-color);
 }
 
 /* BODY (the whole page) */
@@ -203,7 +196,7 @@ h2, h3 {
 }
 
 /* GALLERY */
-.gallery-grid, .pf-results {
+.gallery-grid {
     display: grid;
     grid-template-columns: var(--gallery-grid-columns);
     grid-auto-rows: var(--gallery-item-total-width);
@@ -376,10 +369,6 @@ hr.hr-line {
     display: flex;
     flex-direction: column;
     gap: 12px;
-}
-
-pagefind-results {
-    font-size: var(--font-size);
 }
 
 /* FOOTER */
