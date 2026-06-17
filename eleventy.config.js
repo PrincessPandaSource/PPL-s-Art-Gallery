@@ -207,7 +207,8 @@ export default function(eleventyConfig) {
 			},
             fallback: "largest" // Always go to maximum image size for screen resolution
 		},
-        svgShortCircuit: "size" // So SVG file of vector graphic is only used if WEBP file would be larger
+        svgShortCircuit: "size", // So SVG file of vector graphic is only used if WEBP file would be larger,
+        transformOnRequest: false // So images are fully converted into new image files when Eleventy is served
 	});
 
     // Filter for building search index; takes collection and returns data processed from
