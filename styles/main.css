@@ -233,11 +233,6 @@ picture.gallery-item-art {
     overflow: hidden;
 }
 
-/* For placeholder search results */
-.gallery-item-art-placeholder {
-    background-color: var(--box-link-border-color);
-}
-
 .gallery-item p {
     margin-top: 10px;
     margin-bottom: 0;

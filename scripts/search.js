@@ -12,12 +12,14 @@ const resultEntryTemplate = document.getElementById("result-entry-template");
 // Get URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 
+// Search function
 function search(query) {
     if (query == "") {
         return;
     }
 
-    // Filter search index
+    // Filter search index based on if a specified property includes the query
+    // All in lowercase
     const queryLowerCase = query.toLowerCase();
     const searchResults = searchIndex.filter(item =>
         item.title.toLowerCase().includes(queryLowerCase) ||
@@ -34,18 +36,24 @@ function search(query) {
     searchResultsCounter.textContent = `${searchResultsAmount} result${ searchResultsAmount  === 1 ? "" : "s" } for "${query}"`;
 
     searchResults.forEach(result => {
+        // Get search result template (same gallery item)
         const resultEntry = resultEntryTemplate.content.cloneNode(true);
 
+        // Set link that encapsulates gallery item
         const resultLink = resultEntry.querySelector(".gallery-link");
         resultLink.href = result.url.replace(/\.[^/.]+$/, ""); // strips file extension
 
+        // Set gallery item's image
         const resultImg = resultEntry.querySelector(".gallery-item-art");
         resultImg.src = `/img/art/${result.fileName}`;
         resultImg.alt = result.altText;
 
+        // Set gallery item's title
         resultEntry.querySelector(".gallery-item-title").children[0].textContent = result.title;
+        // Set gallery item's date
         resultEntry.querySelector(".gallery-item-date").textContent = result.date;
 
+        // Add to #search-results div
         searchResultsDiv.append(resultEntry);
     });
 }

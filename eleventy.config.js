@@ -210,23 +210,30 @@ export default function(eleventyConfig) {
         svgShortCircuit: "size" // So SVG file of vector graphic is only used if WEBP file would be larger
 	});
 
-    // Filter for building search index; takes collection and 
+    // Filter for building search index; takes collection and returns data processed from
+    // each item
     // Credit: https://arielsalminen.com/2025/building-search-index-with-eleventy/
 	eleventyConfig.addFilter("searchIndex", function(collection) {
 		const searchIndex = collection
 			.map(({ templateContent, url, data }) => {
+                // Get title, filename, and alt text from the front matter data itself
 				const { title = "", fileName = "", altText = "" } = data;
 
+                // Get data from front matter data and process it
                 const date = artDate(data.date);
 
+                // For each category ID, match with name and add it to string
+                // Separated by space
                 let categories = "";
                 data.categories.forEach(category => {
                     categories = categories.concat(matchCategoryID(category), " ");
                 })
                 categories = categories.trim();
 
+                // Art tags are turned to string, with each tag separated by a space
                 const artTags = data.artTags.join(' ');
 
+                // Content (underneath data) itself is taken and converted to plaintext
 				const content = searchPlainify(templateContent);
 
 				return {

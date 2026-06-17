@@ -4,7 +4,8 @@ title: Search
 permalink: /search.html
 eleventyExcludeFromCollections: true
 ---
-<!--This is the search page.-->
+<!--This is the search page. The accompanying JavaScript file is scripts/search.js, which is embedded in
+<head> as seen in _includes/layouts/main.html-->
 <h2>Gallery search</h2>
 
 <div class="search-page">
@@ -16,12 +17,21 @@ eleventyExcludeFromCollections: true
         </div>
     </form>
 
+    <!--Search counter (displays "# results for "[query]" with the script")-->
     <p id="search-results-counter">Searching...</p>
 
+    <!--Div for search results-->
     <div id="search-results" class="gallery-grid"></div>
 
+    <!--If JavaScript isn't turned on-->
+    <noscript>
+        <p>JavaScript is required to use the search feature.</p>
+    </noscript>
+
+    <!--Template element for each search result entry-->
     <template id="result-entry-template">
-        <!--Yeah, I had to copy and paste the gallery item component code-->
+        <!--Yeah, I had to copy and paste the gallery item component code for
+        this to work-->
         <a class="gallery-link" href="">
             <div class="gallery-item">
                 <img class="gallery-item-art" src="" width="500" sizes="auto" alt="" eleventy:pictureattr:class="gallery-item-art"/>

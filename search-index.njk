@@ -4,4 +4,7 @@ eleventyExcludeFromCollections: true
 eleventyImport:
     collections: ['artGallery']
 ---
+{# This is how the search index is rendered, with the help of the searchIndex
+filter in the configuration. The default dump filter dumps the contents as a
+JSON. #}
 {{ collections.artGallery | reverse | searchIndex | dump | safe }}
