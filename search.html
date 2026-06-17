@@ -4,10 +4,9 @@ title: Search
 permalink: /search.html
 eleventyExcludeFromCollections: true
 ---
-<!--This is the search page, where Pagefind works its magic.-->
+<!--This is the search page. The accompanying JavaScript file is scripts/search.js, which is embedded in
+<head> as seen in _includes/layouts/main.html-->
 <h2>Gallery search</h2>
-
-<p>Powered by <a href="https://pagefind.app/">Pagefind</a></p>
 
 <div class="search-page">
     <!--Search bar-->
@@ -18,38 +17,27 @@ eleventyExcludeFromCollections: true
         </div>
     </form>
 
-    <pagefind-summary></pagefind-summary>
+    <!--Search counter (displays "# results for "[query]" with the script")-->
+    <p id="search-results-counter">Searching...</p>
 
-    <pagefind-results>
-        <script type="text/pagefind-template">
-            {# This is where the look and format of result entires can be customized. #}
-            {# Raw rendering required so that Nunjucks doesn't process the templates initially #}
-            {# (The language used is NOT Nunjucks) #}
-            {# Yeah, I had to copy and paste the gallery item component code #}
-            {# (I cannot find a way to provide a custom filter for this implementation of adequate-little-templates,
-            so you'll have to deal with the file extensions in the URL.) #}
-            {% raw %}
-            <a class="gallery-link" href="{{ url | safeUrl }}">
-                <div class="gallery-item">
-                    <img class="gallery-item-art" src="{{ meta.image }}" width="500" sizes="auto" alt="{{ meta.image_alt }}" eleventy:pictureattr:class="gallery-item-art"/>
-                    <p class="gallery-item-title"><b>{{ meta.title }}</b></p>
-                    <p>{{ meta.date }}</p>
-                </div>
-            </a>
-            {% endraw %}
-        </script>
+    <!--Div for search results-->
+    <div id="search-results" class="gallery-grid"></div>
 
-        <script type="text/pagefind-template" data-template="placeholder">
-            {# This is where the placeholder results, while they are loading, are customized. #}
-            {% raw %}
-            <a class="gallery-link" href="{{ url | safeUrl }}" aria-hidden="true">
-                <div class="gallery-item">
-                    <div class="gallery-item-art-placeholder"></div>
-                    <p class="gallery-item-title"><b>Loading...</b></p>
-                    <p>...</p>
-                </div>
-            </a>
-            {% endraw %}
-        </script>
-    </pagefind-results>
+    <!--If JavaScript isn't turned on-->
+    <noscript>
+        <p>JavaScript is required to use the search feature.</p>
+    </noscript>
+
+    <!--Template element for each search result entry-->
+    <template id="result-entry-template">
+        <!--Yeah, I had to copy and paste the gallery item component code for
+        this to work-->
+        <a class="gallery-link" href="">
+            <div class="gallery-item">
+                <img class="gallery-item-art" src="" width="500" sizes="auto" alt="" eleventy:pictureattr:class="gallery-item-art"/>
+                <p class="gallery-item-title"><b></b></p>
+                <p class="gallery-item-date"></p>
+            </div>
+        </a>
+    </template>
 </div>

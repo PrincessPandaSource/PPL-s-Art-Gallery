@@ -10,7 +10,7 @@ PPL's Art Gallery is a website template for showcasing your artwork, based on 20
 
 * Load image files for your artwork, make their filenames URL-friendly with a custom command, and whip up their entries with titles, dates, alt text, and descriptions (Markdown is supported!).
 * Sort your artwork into custom categories and with tags.
-* Search your art gallery, courtesy of [Pagefind](https://pagefind.app/).
+* Search your art gallery.
 * Customize your gallery's look with HTML layout pages and a single CSS file.
 * Add regular pages such as "About".
 * Art can be zoomed in by clicking on its image on its page.
@@ -53,7 +53,7 @@ date: 2026-06-23
 fileName: "artwork-image.png"
 categories: [0, 1]
 artTags: ["tag", "subject"]
-altText: "description of the artwork for low-vision users"
+altText: "description of the artwork for low-vision users and search"
 ---
 ```
 
