@@ -45,7 +45,8 @@ function search(query) {
 
         // Set gallery item's image
         const resultImg = resultEntry.querySelector(".gallery-item-art");
-        resultImg.src = `/img/art/${result.fileName}`;
+        const imgFileName = result.fileName.replace(/\.[^/.]+$/, "").concat("-500.webp");
+        resultImg.src = `/img/art/${imgFileName}`;
         resultImg.alt = result.altText;
 
         // Set gallery item's title

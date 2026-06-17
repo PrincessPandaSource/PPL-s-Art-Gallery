@@ -33,7 +33,7 @@ The preferred method of obtaining this template is cloning the repository via [G
 
 In the terminal, set the current directory to the template's (this can be done with the `cd` command). Install dependencies, including Eleventy, by running `npm i`.
 
-To run a local instance of the website, run `npm start`. To fully build the website, run `npm run build`. *(This is important if you are going to publish by manually uploading files, rather than having the host build from them.)*
+To run a local instance of the website, run `npm start`. To fully build the website, run `npm run build`. *(This is important if you are going to publish by manually uploading files, rather than having the host build from them. Also, the search function does not display images if a full build hasn't been made.)*
 
 Eleventy does not automatically delete files from the build. To wipe the `_site` folder, which contains the build, run `npm run clean`.
 
