@@ -37,6 +37,11 @@ To build and run a local instance of the website, run `npm start`. To build the 
 
 Eleventy does not automatically delete files from the build. To wipe the `_site` folder, which contains the build, run `npm run clean`.
 
+#### Implementing as a subsite
+If you want to implement the template as part of a pre-existing website (subsite), this is preferably done by putting the template files in a new folder within the site's folder, besides the Eleventy and NPM configuration files `eleventy.config.js`, `package-lock.json`, and `package.json` and `_data` and `_include` folders, which must be in the site's root or top-level folder. (If `eleventy.config.js` and the `_data` and `_include` folders already exist, they must be merged with the template's.)
+
+Then, you can specify the subsite's directory in the `siteDirectory` field in the `artSiteSettings.json` file in the `_data` folder. It must be relative to the root directory (starts with `/`) and ends with `/`. (You must change referrals to the subsite directory manually in `eleventy.config.js`, files in the `_includes/components` folder, the CSS files, the JavaScript files, and the `feed.njk` file.)
+
 ### Adding artwork
 Artwork pages are generated from files in the `art` folder, and they use images stored in the `img/art` folder.
 
@@ -114,7 +119,7 @@ First, create an HTML or Markdown file. Then, add and fill the following front m
 ---
 layout: layouts/main.html
 title: "page's title here"
-permalink: /optional-directory/page-title-in-url.html
+permalink: {{ artSiteSettings.siteDirectory }}optional-directory/page-title-in-url.html
 description: "description of the page, which will be displayed in social media cards"
 ogImage: "filename-of-image-to-show-on-social-media-card.png"
 ogImageAlt: "descriptive alt text of image to show on social media card"
