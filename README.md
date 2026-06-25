@@ -127,7 +127,7 @@ summaryLargeImage: true
 After that, you can fill in whatever HTML content you want on the page. Refer to ["Adding artwork"](#adding-artwork) for how to add images properly.
 
 ### Site configuration
-The site's title and URL are set in the `siteSettings.json` file in the `_data` folder. (You must set them manually in `feed.njk`, the RSS feed file.)
+The site's title and URL are set in the `artSiteSettings.json` file in the `_data` folder. (You must set them manually in `feed.njk`, the RSS feed file.)
 
 Social media cards rely on the [Open Graph](https://ogp.me/) and [Twitter Card](https://web.archive.org/web/20230726041100/https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) protocols, in which such metadata must be provided in the webpage code for the cards to render correctly. The default metadata is provided in the `_includes/layouts/main.html` file, where you can change the `author` and `twitter:site` metadata. The `description`, `ogImage`, and `ogImageAlt` fields can be set in the front matter data to change their respective metadata.
 

@@ -10,7 +10,7 @@ have rendered pages (false permalink), and entering their URLs and dates. #}
 {%- for page in collections.all %}
 {% if page.data.permalink != false %}
     <url>
-        <loc>{{ siteSettings.siteURL }}{{ page.url | stripExtension }}</loc>
+        <loc>{{ artSiteSettings.siteURL }}{{ page.url | stripExtension }}</loc>
         <lastmod>{{ page.date | numDate }}</lastmod>
     </url>
 {% endif %}

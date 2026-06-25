@@ -33,7 +33,7 @@ https://www.11ty.dev/docs/plugins/rss/#sample-feed-templates
       <link>{{ absolutePostUrl }}</link>
       <description>
         {# This is how you put images in RSS feed entries #}
-        <![CDATA[<img alt="{{ artwork.data.altText }}" src="{{ siteSettings.siteURL }}/img/art/{{ artwork.data.fileName }}" />]]>
+        <![CDATA[<img alt="{{ artwork.data.altText }}" src="{{ artSiteSettings.siteURL }}/img/art/{{ artwork.data.fileName }}" />]]>
         
         {{ artwork.content | renderTransforms(artwork.data.page, metadata.base) }}
       </description>
