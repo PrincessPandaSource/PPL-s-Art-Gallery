@@ -47,6 +47,7 @@ function search(query) {
         const resultImg = resultEntry.querySelector(".gallery-item-art");
         // Get filename for image's thumbnail
         const imgFileName = result.fileName.replace(/\.[^/.]+$/, "").concat("-500.webp");
+        // IF YOU CHANGED SITE DIRECTORY, ADD IT TO SRC
         resultImg.src = `/img/art/${imgFileName}`;
         resultImg.alt = result.altText;
 

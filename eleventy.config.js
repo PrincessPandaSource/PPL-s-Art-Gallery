@@ -15,11 +15,12 @@ import { execSync } from 'child_process';
 import { match } from "node:assert";
 
 export default function(eleventyConfig) {
-    // Copies the following directories and files to the build,
+    // Copies the following folders to the build,
     // for that they are not transferred by default
+    // (IF YOU CHANGED SITE DIRECTORY, ADD TO THE FOLDER PATHS)
 
     // This copies all original images to the build
-    // This is REQUIRED for images in social media cards to work
+    // This is REQUIRED for images in social media cards and RSS feed to work
     eleventyConfig.addPassthroughCopy("img");
 
     eleventyConfig.addPassthroughCopy("styles");

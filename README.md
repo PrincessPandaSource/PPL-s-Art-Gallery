@@ -39,7 +39,7 @@ To build and run a local instance of the website, run `npm start`. To build the 
 Eleventy does not automatically delete files from the build. To wipe the `_site` folder, which contains the build, run `npm run clean`.
 
 #### Implementing as a subsite
-If you want to implement the template as part of a pre-existing website (subsite), this is preferably done by putting the template files in a new folder within the site's folder, besides the Eleventy, Git, and NPM configuration files `eleventy.config.js`, `.eleventyignore`, `.gitignore`, `package-lock.json`, and `package.json` and `_data` and `_include` folders, which must be in the site's root or top-level folder. (If `eleventy.config.js` and the `_data` and `_include` folders already exist, they must be merged with the template's.)
+If you want to implement the template as part of a pre-existing website (subsite), this is preferably done by putting the template files in a new folder within the site's folder, besides the Eleventy, Git, and NPM configuration files `eleventy.config.js`, `.eleventyignore`, `.gitignore`, `package-lock.json`, `package.json`, and `slugify_filename.js`, and `_data` and `_include` folders, which must be in the site's root or top-level folder. (If `eleventy.config.js` and the `_data` and `_include` folders already exist, they must be merged with the template's.)
 
 Then, you can specify the subsite's directory in the `siteDirectory` field in the `artSiteSettings.json` file in the `_data` folder. It must be relative to the root directory (starts with `/`) and ends with `/`. (You must change referrals to the subsite directory manually in `eleventy.config.js`, files in the `_includes/components` folder, the CSS files, the JavaScript files, and the `feed.njk` file.)
 

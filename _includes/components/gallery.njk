@@ -2,8 +2,10 @@
 
 {# An entry in the gallery #}
 {% macro galleryItem(fileName, title, date, altText) %}
+{# IF YOU CHANGED SITE DIRECTORY, ADD IT TO gallery-link HREF #}
 <a class="gallery-link" href="/art/{{ title | slugify }}">
     <div class="gallery-item">
+        {# IF YOU CHANGED SITE DIRECTORY, ADD IT TO gallery-item-art SRC #}
         <img class="gallery-item-art" src="/img/art/{{ fileName }}" width="500" sizes="auto" alt="{{ altText }}" eleventy:pictureattr:class="gallery-item-art"/>
         <p class="gallery-item-title"><b>{{ title }}</b></p>
         <p class="gallery-item-date">{{ date | artDate }}</p>

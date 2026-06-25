@@ -2,7 +2,8 @@
 positioning of HTML elements. */
 
 /* The @font-face rule specifies a custom font, pointing to the source path of its font file.
-Use it to add custom fonts. */
+Use it to add custom fonts. 
+(IF YOU CHANGED SITE DIRECTORY, ADD IT TO IN FONT SRCS) */
 @font-face {
     font-family: "The Girl Next Door";
     src: url("/fonts/the-girl-next-door.woff2") format(woff2);
