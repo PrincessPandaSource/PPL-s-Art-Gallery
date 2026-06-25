@@ -8,4 +8,6 @@ altText: "Silver sits with Tikal in the lecture hall with their laptops. Tikal g
 ---
 **[Gaia Online](https://en.wikipedia.org/wiki/Gaia_Online)** is an English-language anime-themed social networking and forums-based website with Chibi-style animations. It was founded as go-gaia on February 18, 2003, by Derek Liu, Long Vo, Josh Gainsbrugh, and the name was changed to GaiaOnline.com in 2004 by its owner, Gaia Interactive. Gaia originally began as an anime linklist and eventually developed a small community, but following a statement by founder Derek Liu, the website moved towards social gaming and eventually became forum-based.
 
-In 2007, over a million posts were made daily, and 7 million unique users visited each month (with over 26 million total registered users). Gaia also won the 2007 Webware 100 award in the Community category and was included in Time magazine's list of 50 best websites in 2008.[10] In January 2011, the company won the Mashable Best User experience Award for 2010. 
+In 2007, over a million posts were made daily, and 7 million unique users visited each month (with over 26 million total registered users). Gaia also won the 2007 Webware 100 award in the Community category and was included in Time magazine's list of 50 best websites in 2008. In January 2011, the company won the Mashable Best User experience Award for 2010.
+
+[Next](silver-scripts-its-the-same-teacher)

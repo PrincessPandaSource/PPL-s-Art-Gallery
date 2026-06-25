@@ -16,6 +16,7 @@ PPL's Art Gallery is a website template for showcasing your artwork, based on 20
 * Art can be zoomed in by clicking on its image on its page.
 * Website is responsive and looks just as good on mobile screens.
 * Images are automatically optimized for better website performance.
+* Website can easily be implemented into a pre-existing website as a subsite.
 * Sitemap is automatically generated for indexing on search engines.
 * Social media card metadata is automatically generated for convenient sharing on social media.
 * RSS feed is automatically generated, so viewers can receive automatic updates.
@@ -29,7 +30,7 @@ Check out the [live demo](https://ppls-art-gallery.netlify.app/), featuring my a
 ### Local setup
 Node.js and NPM are required. Please refer to the [installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if you do not have them.
 
-The preferred method of obtaining this template is cloning the repository via [Git](https://git-scm.com/). To do so, in the terminal, run the command `git clone https://github.com/PrincessPandaSource/PPL-s-Art-Gallery.git`. That way, you'll have your own Git repository where you can track and manage changes, and some site hosts allow automatic publishing via the repository. If you would not like to use Git, you can [download the ZIP](https://github.com/PrincessPandaSource/PPL-s-Art-Gallery/archive/refs/heads/main.zip).
+The preferred method of obtaining this template is cloning the repository via [Git](https://git-scm.com/). To do so, in the terminal, run the command `git clone https://github.com/PrincessPandaSource/PPL-s-Art-Gallery.git`. That way, you can have a direct copy of the Git repository where you can track and manage changes, and some site hosts allow automatic publishing via a Git repository. If you would not like to use Git, you can [download the ZIP](https://github.com/PrincessPandaSource/PPL-s-Art-Gallery/archive/refs/heads/main.zip).
 
 In the terminal, set the current directory to the template's (this can be done with the `cd` command). Install dependencies, including Eleventy, by running `npm i`.
 
@@ -65,6 +66,8 @@ altText: "description of the artwork for low-vision users and search"
 (Categories are identified by numeral IDs. Go to the ["Categories"](#categories) section to learn about this.)
 
 After the front matter data, you can write the description, marking it up according to your language.
+
+To add links to other artwork, you can link to the mere titles as rendered in the URL, "like-this", as the relative URLs, as demonstrated in the descriptions of the *Silver Scripts* comics. This is because all artwork pages are in the same directory. To make links relative to the art gallery site, be sure to use `{{ artSiteSettings.siteDirectory }}` (no `/`) at the beginning, such as in `{{ artSiteSettings.siteDirectory }}about` to link to the "About" page.
 
 To add images, put an image in the `img` folder. Add this Nunjucks import directly below the front matter data:
 ```
@@ -119,7 +122,7 @@ First, create an HTML or Markdown file. Then, add and fill the following front m
 ---
 layout: layouts/main.html
 title: "page's title here"
-permalink: {{ artSiteSettings.siteDirectory }}optional-directory/page-title-in-url.html
+permalink: "{{ artSiteSettings.siteDirectory }}optional-directory/page-title-in-url.html"
 description: "description of the page, which will be displayed in social media cards"
 ogImage: "filename-of-image-to-show-on-social-media-card.png"
 ogImageAlt: "descriptive alt text of image to show on social media card"
@@ -129,7 +132,7 @@ summaryLargeImage: true
 
 (`ogImage` and `ogImageAlt` are optional, as they are already set in the `layouts/main.html` layout. It is recommended to set them to the first image in the page if there is one. `summaryLargeImage` should only be set if you want the social media card to display the image as large. While set in the layout file already, a specific `description` is recommended. Read ["Site configuration"](#site-configuration) to learn more about social media card settings.)
 
-After that, you can fill in whatever HTML content you want on the page. Refer to ["Adding artwork"](#adding-artwork) for how to add images properly.
+After that, you can fill in whatever HTML content you want on the page. Refer to ["Adding artwork"](#adding-artwork) for how to add links and images properly.
 
 ### Site configuration
 The site's title and URL are set in the `artSiteSettings.json` file in the `_data` folder. (You must set them manually in `feed.njk`, the RSS feed file.)

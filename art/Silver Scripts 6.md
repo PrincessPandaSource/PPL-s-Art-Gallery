@@ -13,3 +13,5 @@ Julius F. Kelp is an awkward, shy, and accident-prone, but polite, intelligent, 
 Murphy also played the rest of Klump's family in the sequel. Lewis was not fond of Murphy's characters, in particular due to excessive fart jokes in the films.
 
 Alongside "inhuman professors" inspired by the perceived motivations of scientists in the Manhattan Project, the Nutty Professor is an example of a stock character and stereotype of the "absent-minded professor", which was prevalent during the 1960s.
+
+[Previous](silver-scripts-heart-over-head) | [Next](silver-scripts-mid-college-crisis-check)
