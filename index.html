@@ -5,7 +5,7 @@ pagination:
   size: 24
   reverse: true
   addAllPagesToCollections: true
-permalink: /{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}
+permalink: "{{ artSiteSettings.siteDirectory }}{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 eleventyComputed:
   title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }}{% endif %}"
 ---
@@ -23,7 +23,7 @@ the size property in the front matter. #}
   <ul id="category-list" class="piped-list">
   {% for category in artCategories %}
   {# From the artCategories collection formed by Eleventy configuration #}
-    <li><a href="/category/{{ category.name | slugify }}/">{{ category.name }}</a></li>
+    <li><a href="{{ artSiteSettings.siteDirectory }}category/{{ category.name | slugify }}/">{{ category.name }}</a></li>
   {% endfor %}
   </ul>
 

@@ -9,7 +9,7 @@ eleventyComputed:
 {# This is the layout for the art page, being built atop the main layout. #}
 <!--Artwork image-->
 <div class="art-page-img-div">
-    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
+    <img src="{{ artSiteSettings.siteDirectory }}img/art/{{ fileName }}" alt="{{ altText }}" onclick="openImgModal()"/>
 </div>
 
 <!--Title-->
@@ -28,13 +28,13 @@ artCategories collection formed by Eleventy configuration.-->
             {%- set category = object.name %}
         {%- endif %}
     {%- endfor %}
-    <a class="art-tag" href="/category/{{ category | slugify }}/">{{ category }}</a> 
+    <a class="art-tag" href="{{ artSiteSettings.siteDirectory }}category/{{ category | slugify }}/">{{ category }}</a> 
 {%- endfor %}
 </p>
 
 <!--Tags
 artTags collection formed by Eleventy configuration.-->
-<p class="p-tags"><span>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="/tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
+<p class="p-tags"><span>Tags:</span> {% for artTag in artTags %}<a class="art-tag" href="{{ artSiteSettings.siteDirectory }}tag/{{ artTag | slugify }}/">{{ artTag }}</a> {% endfor %}</p>
 
 <hr class="hr-line">
 
@@ -45,7 +45,7 @@ artTags collection formed by Eleventy configuration.-->
 <div id="img-modal" class="modal">
     <!--Close button-->
     <span class="modal-close" onclick="closeImgModal()">&times;</span>
-    <img src="/img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
+    <img src="{{ artSiteSettings.siteDirectory }}img/art/{{ fileName }}" alt="{{ altText }}" class="modal-img" eleventy:pictureattr:class="modal-pict"/>
 </div>
 
-<script src="/scripts/imgModal.js" defer></script>
+<script src="{{ artSiteSettings.siteDirectory }}scripts/imgModal.js" defer></script>

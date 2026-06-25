@@ -4,7 +4,7 @@ pagination:
     size: 1
     alias: artTag
     addAllPagesToCollections: true
-permalink: "/tag/{{ artTag.tag | slugify }}/{%- if artTag.pageNumber > 1 %}{{ artTag.pageNumber }}.html{%- endif %}"
+permalink: "{{ artSiteSettings.siteDirectory }}tag/{{ artTag.tag | slugify }}/{%- if artTag.pageNumber > 1 %}{{ artTag.pageNumber }}.html{%- endif %}"
 eleventyComputed:
     layout: layouts/main.html
     title: "{% if artTag.pageNumber > 1 %}Page {{artTag.pageNumber}} - {% endif %}Tagged: {{ artTag.tag }}"
@@ -33,10 +33,10 @@ code in the configuration. #}
 {%- if artTag.pageNumber > 1 %}
 {%- if artTag.pageNumber - 1 == 1 %}
 <!--Link to first page of art tag (from second page)-->
-<a href="/tag/{{ artTag.tag | slugify }}/">Previous</a>
+<a href="{{ artSiteSettings.siteDirectory }}tag/{{ artTag.tag | slugify }}/">Previous</a>
 {%- else %}
 <!--Link to previous numbered page otherwise-->
-<a href="/tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber - 1 }}">Previous</a>
+<a href="{{ artSiteSettings.siteDirectory }}tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber - 1 }}">Previous</a>
 {% endif -%}
 {% endif -%}
 {%- if artTag.pageNumber > 1 and artTag.pageNumber < artTag.totalPages %}
@@ -45,7 +45,7 @@ code in the configuration. #}
 {% endif -%} 
 {%- if artTag.pageNumber < artTag.totalPages %}
 <!--Link to next page-->
-  <a href="/tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber + 1 }}">Next</a>
+  <a href="{{ artSiteSettings.siteDirectory }}tag/{{ artTag.tag | slugify }}/{{ artTag.pageNumber + 1 }}">Next</a>
 {% endif -%}
 {%- if artTag.totalPages > 1 %}
 </nav>

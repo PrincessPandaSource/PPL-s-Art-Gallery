@@ -4,7 +4,7 @@ pagination:
     size: 1
     alias: artCategory
     addAllPagesToCollections: true
-permalink: "/category/{{ artCategory.category | slugify }}/{%- if artCategory.pageNumber > 1 %}{{ artCategory.pageNumber }}.html{%- endif %}"
+permalink: "{{ artSiteSettings.siteDirectory }}category/{{ artCategory.category | slugify }}/{%- if artCategory.pageNumber > 1 %}{{ artCategory.pageNumber }}.html{%- endif %}"
 eleventyComputed:
     layout: layouts/main.html
     title: "{% if artCategory.pageNumber > 1 %}Page {{artCategory.pageNumber}} - {% endif %}Category: {{ artCategory.category }}"
@@ -33,10 +33,10 @@ in the configuration. #}
 {%- if artCategory.pageNumber > 1 %}
 {%- if artCategory.pageNumber - 1 == 1 %}
 <!--Link to first page of category (from second page)-->
-<a href="/category/{{ artCategory.category | slugify }}/">Previous</a>
+<a href="{{ artSiteSettings.siteDirectory }}category/{{ artCategory.category | slugify }}/">Previous</a>
 {%- else %}
 <!--Link to previous numbered page otherwise-->
-<a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber - 1 }}">Previous</a>
+<a href="{{ artSiteSettings.siteDirectory }}category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber - 1 }}">Previous</a>
 {% endif -%}
 {% endif -%}
 {%- if artCategory.pageNumber > 1 and artCategory.pageNumber < artCategory.totalPages %}
@@ -45,7 +45,7 @@ in the configuration. #}
 {% endif -%} 
 {%- if artCategory.pageNumber < artCategory.totalPages %}
 <!--Link to next page-->
-  <a href="/category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber + 1 }}">Next</a>
+  <a href="{{ artSiteSettings.siteDirectory }}category/{{ artCategory.category | slugify }}/{{ artCategory.pageNumber + 1 }}">Next</a>
 {% endif -%}
 {%- if artCategory.totalPages > 1 %}
 </nav>

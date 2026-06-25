@@ -24,16 +24,18 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <meta name="author" content="PrincessPandaLover">
         <meta name="generator" content="{{ eleventy.generator }}">
 
-        {% if page.url == "/search.html" -%}
+        {% set searchURL = [artSiteSettings.siteDirectory, "search.html"] | join -%}
+        {% if page.url == searchURL -%}
         <!--Load search script file-->
-        <link rel="modulepreload" href="/scripts/search.js" />
-        <script src="/scripts/search.js" type="module"></script>
+        <link rel="modulepreload" href="{{ artSiteSettings.siteDirectory }}scripts/search.js" />
+        <script src="{{ artSiteSettings.siteDirectory }}scripts/search.js" type="module"></script>
         {%- endif %}
 
-        <link rel="stylesheet" type="text/css" href="/styles/main.css">
-        <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    
-        {%- if page.url != "/404.html" %}
+        <link rel="stylesheet" type="text/css" href="{{ artSiteSettings.siteDirectory }}styles/main.css">
+        <link rel="icon" type="image/x-icon" href="{{ artSiteSettings.siteDirectory }}img/favicon.ico">
+        
+        {% set 404URL = [artSiteSettings.siteDirectory, "404.html"] | join -%}
+        {%- if page.url != 404URL %}
         <!--Canonical URL for search engines-->
         <link rel="canonical" href="{{ artSiteSettings.siteURL }}{{ page.url | stripExtension }}"/>
         {%- endif %}
@@ -68,9 +70,9 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
         <div class="wrapper">
             <header>
                 <!--Header logo and title-->
-                <a class="header-title-link" href="/">
+                <a class="header-title-link" href="{{ artSiteSettings.siteDirectory }}">
                     <div class="header-title">
-                        <img class="logo" src="/img/icon.svg" width="250" sizes="auto" loading="eager" fetchpriority="high" alt="Simple icon of framed picture showing heart and Mythical the wolf's silhouette">
+                        <img class="logo" src="{{ artSiteSettings.siteDirectory }}img/icon.svg" width="250" sizes="auto" loading="eager" fetchpriority="high" alt="Simple icon of framed picture showing heart and Mythical the wolf's silhouette">
                         <!--Logo has eager loading and high fetch priority to ensure that browser prioritizes
                         this image foremost for better performance.-->
                         <h1 class="header-title-text">PPL's Art Gallery</h1>
@@ -80,11 +82,11 @@ ogImageAlt: "Simple icon of framed picture showing heart and Mythical the wolf's
                 <!--Navigation bar-->
                 <nav>
                     <ul class="piped-list">
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/feed.xml">RSS feed</a></li>
+                        <li><a href="{{ artSiteSettings.siteDirectory }}about">About</a></li>
+                        <li><a href="{{ artSiteSettings.siteDirectory }}feed.xml">RSS feed</a></li>
                         <li>
                             <!--Search bar-->
-                            <form id="search-bar-form" action="/search">
+                            <form id="search-bar-form" action="{{ artSiteSettings.siteDirectory }}search">
                                 <div class="search-bar-div">
                                     <input type="search" id="search-bar" name="q" size="20" placeholder="Search gallery..." />
                                     <button type="submit">Search</button>

@@ -1,7 +1,7 @@
 ---
 layout: layouts/main.html
 title: Search
-permalink: /search.html
+permalink: "{{ artSiteSettings.siteDirectory }}search.html"
 eleventyExcludeFromCollections: true
 ---
 <!--This is the search page. The accompanying JavaScript file is scripts/search.js, which is embedded in
@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
 
 <div class="search-page">
     <!--Search bar-->
-    <form action="/search">
+    <form action="{{ artSiteSettings.siteDirectory }}search">
         <div class="search-page-bar-div">
             <input type="search" id="search-page-bar" name="q" size="40" placeholder="Search gallery..." />
             <button type="submit">Go</button>
