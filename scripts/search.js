@@ -45,8 +45,15 @@ function search(query) {
 
         // Set gallery item's image
         const resultImg = resultEntry.querySelector(".gallery-item-art");
-        // Get filename for image's thumbnail
-        const imgFileName = result.fileName.replace(/\.[^/.]+$/, "").concat("-500.webp");
+        // Set thumbnail src's suffix
+        let imgFileNameSuffix = ".webp";
+        if (result.imgWidth < 500) {
+            imgFileNameSuffix = "-" + result.imgWidth + imgFileNameSuffix;
+        } else {
+            imgFileNameSuffix = "-500" + imgFileNameSuffix;
+        }
+        // Set image's thumbnail src
+        const imgFileName = result.fileName.replace(/\.[^/.]+$/, "").concat(imgFileNameSuffix);
         // IF YOU CHANGED SITE DIRECTORY, ADD IT TO SRC
         resultImg.src = `/img/art/${imgFileName}`;
         resultImg.alt = result.altText;

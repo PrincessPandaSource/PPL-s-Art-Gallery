@@ -10,6 +10,8 @@ import lodash from "lodash";
 import path from "node:path";
 import { DateTime } from "luxon";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { readFileSync } from 'node:fs'
+import { imageSize } from 'image-size'
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import { execSync } from 'child_process';
 import { match } from "node:assert";
@@ -186,8 +188,8 @@ export default function(eleventyConfig) {
     // Image HTML transform
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		formats: ["svg", "webp"],
-		widths: [768, 1280, 1920, "auto"],
-        // The first three widths are screen resolutions, last width is the original
+		widths: [768, 1280, 1920],
+        // The widths are screen resolutions for mobile, tablet, and desktop
         outputDir: "_site/", // Put images in "_site" folder
         urlPath: "/",
         // Image src paths are set to exactly as they were in the source code
@@ -224,6 +226,12 @@ export default function(eleventyConfig) {
                 // Get data from front matter data and process it
                 const date = artDate(data.date);
 
+                // Get width of original image via the image-size package
+                // IF YOU CHANGED SITE DIRECTORY, ADD IT TO IMGBUFFER PATH
+                const imgBuffer = readFileSync(`img/art/${fileName}`);
+                const imgDimensions = imageSize(imgBuffer);
+                const imgWidth = imgDimensions.width;
+
                 // For each category ID, match with name and add it to string
                 // Separated by space
                 let categories = "";
@@ -243,6 +251,7 @@ export default function(eleventyConfig) {
 					title,
                     date,
 					fileName,
+                    imgWidth,
                     categories,
 					artTags,
                     altText,
