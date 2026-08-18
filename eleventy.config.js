@@ -13,8 +13,6 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { readFileSync } from 'node:fs'
 import { imageSize } from 'image-size'
 import pluginRss from "@11ty/eleventy-plugin-rss";
-import { execSync } from 'child_process';
-import { match } from "node:assert";
 
 export default function(eleventyConfig) {
     // Copies the following folders to the build,
